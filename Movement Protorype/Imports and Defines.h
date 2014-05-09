@@ -10,6 +10,8 @@
 #define Movement_Protorype_Import_h
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Character.h"
+#import "Tile.h"
 #define H 70
 #define W 140
 #define P 1.5

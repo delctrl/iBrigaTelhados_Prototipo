@@ -7,10 +7,9 @@
 //
 
 #import "Imports and Defines.h"
-#import "Character.h"
 
 @interface MyScene : SKScene {
-    SKSpriteNode *matriz[5][5];
+    NSMutableArray *tileMatrix;
     BOOL characterIsSelected;
     Character *selectedCharacter;
 }

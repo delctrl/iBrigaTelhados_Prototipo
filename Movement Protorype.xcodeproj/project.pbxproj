@@ -29,6 +29,7 @@
 		BB10763A191C08850053EF91 /* hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107639191C08850053EF91 /* hunter.png */; };
 		BB107688191C17030053EF91 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* Character.m */; };
 		BB10768B191C1ECB0053EF91 /* medic.png in Resources */ = {isa = PBXBuildFile; fileRef = BB10768A191C1ECB0053EF91 /* medic.png */; };
+		BB1C7B47191D6A9E006F1D19 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1C7B46191D6A9E006F1D19 /* Tile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		BB107687191C17030053EF91 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
 		BB107689191C17360053EF91 /* Imports and Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imports and Defines.h"; sourceTree = "<group>"; };
 		BB10768A191C1ECB0053EF91 /* medic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medic.png; sourceTree = "<group>"; };
+		BB1C7B45191D6A9E006F1D19 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		BB1C7B46191D6A9E006F1D19 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				BB107616191C08520053EF91 /* MyScene.m */,
 				BB107686191C17030053EF91 /* Character.h */,
 				BB107687191C17030053EF91 /* Character.m */,
+				BB1C7B45191D6A9E006F1D19 /* Tile.h */,
+				BB1C7B46191D6A9E006F1D19 /* Tile.m */,
 				BB107618191C08520053EF91 /* Spaceship.png */,
 				BB10761A191C08520053EF91 /* Images.xcassets */,
 				BB107601191C08520053EF91 /* Supporting Files */,
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB107617191C08520053EF91 /* MyScene.m in Sources */,
+				BB1C7B47191D6A9E006F1D19 /* Tile.m in Sources */,
 				BB107688191C17030053EF91 /* Character.m in Sources */,
 				BB107614191C08520053EF91 /* ViewController.m in Sources */,
 				BB10760B191C08520053EF91 /* AppDelegate.m in Sources */,
@@ -510,6 +516,7 @@
 				BB107633191C08520053EF91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB107634191C08520053EF91 /* Build configuration list for PBXNativeTarget "Movement ProtorypeTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				BB107636191C08520053EF91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
