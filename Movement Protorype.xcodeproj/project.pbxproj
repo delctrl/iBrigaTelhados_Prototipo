@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
+		BB1075FB191C08520053EF91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FA191C08520053EF91 /* CoreGraphics.framework */; };
+		BB1075FD191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
+		BB1075FF191C08520053EF91 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FE191C08520053EF91 /* SpriteKit.framework */; };
+		BB107605191C08520053EF91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB107603191C08520053EF91 /* InfoPlist.strings */; };
+		BB107607191C08520053EF91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107606191C08520053EF91 /* main.m */; };
+		BB10760B191C08520053EF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB10760A191C08520053EF91 /* AppDelegate.m */; };
+		BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760C191C08520053EF91 /* Main_iPhone.storyboard */; };
+		BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760F191C08520053EF91 /* Main_iPad.storyboard */; };
+		BB107614191C08520053EF91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107613191C08520053EF91 /* ViewController.m */; };
+		BB107617191C08520053EF91 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* MyScene.m */; };
+		BB107619191C08520053EF91 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107618191C08520053EF91 /* Spaceship.png */; };
+		BB10761B191C08520053EF91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB10761A191C08520053EF91 /* Images.xcassets */; };
+		BB107622191C08520053EF91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB107621191C08520053EF91 /* XCTest.framework */; };
+		BB107623191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
+		BB107624191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
+		BB10762C191C08520053EF91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB10762A191C08520053EF91 /* InfoPlist.strings */; };
+		BB10762E191C08520053EF91 /* Movement_ProtorypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */; };
+		BB107638191C087A0053EF91 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107637191C087A0053EF91 /* grass.png */; };
+		BB10763A191C08850053EF91 /* hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107639191C08850053EF91 /* hunter.png */; };
+		BB107688191C17030053EF91 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* Character.m */; };
+		BB10768B191C1ECB0053EF91 /* medic.png in Resources */ = {isa = PBXBuildFile; fileRef = BB10768A191C1ECB0053EF91 /* medic.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB107625191C08520053EF91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB1075ED191C08520053EF91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB1075F4191C08520053EF91;
+			remoteInfo = "Movement Protorype";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB1075F5191C08520053EF91 /* Movement Protorype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movement Protorype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1075F8191C08520053EF91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BB1075FA191C08520053EF91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BB1075FC191C08520053EF91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BB1075FE191C08520053EF91 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		BB107602191C08520053EF91 /* Movement Protorype-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Movement Protorype-Info.plist"; sourceTree = "<group>"; };
+		BB107604191C08520053EF91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BB107606191C08520053EF91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB107608191C08520053EF91 /* Movement Protorype-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movement Protorype-Prefix.pch"; sourceTree = "<group>"; };
+		BB107609191C08520053EF91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB10760A191C08520053EF91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB10760D191C08520053EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		BB107610191C08520053EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		BB107612191C08520053EF91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BB107613191C08520053EF91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB107615191C08520053EF91 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		BB107616191C08520053EF91 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		BB107618191C08520053EF91 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		BB10761A191C08520053EF91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movement ProtorypeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB107621191C08520053EF91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BB107629191C08520053EF91 /* Movement ProtorypeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Movement ProtorypeTests-Info.plist"; sourceTree = "<group>"; };
+		BB10762B191C08520053EF91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement_ProtorypeTests.m; sourceTree = "<group>"; };
+		BB107637191C087A0053EF91 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		BB107639191C08850053EF91 /* hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunter.png; sourceTree = "<group>"; };
+		BB107686191C17030053EF91 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		BB107687191C17030053EF91 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		BB107689191C17360053EF91 /* Imports and Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imports and Defines.h"; sourceTree = "<group>"; };
+		BB10768A191C1ECB0053EF91 /* medic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medic.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB1075F2191C08520053EF91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB1075FB191C08520053EF91 /* CoreGraphics.framework in Frameworks */,
+				BB1075FD191C08520053EF91 /* UIKit.framework in Frameworks */,
+				BB1075FF191C08520053EF91 /* SpriteKit.framework in Frameworks */,
+				BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB10761D191C08520053EF91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB107622191C08520053EF91 /* XCTest.framework in Frameworks */,
+				BB107624191C08520053EF91 /* UIKit.framework in Frameworks */,
+				BB107623191C08520053EF91 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB1075EC191C08520053EF91 = {
+			isa = PBXGroup;
+			children = (
+				BB107600191C08520053EF91 /* Movement Protorype */,
+				BB107627191C08520053EF91 /* Movement ProtorypeTests */,
+				BB1075F7191C08520053EF91 /* Frameworks */,
+				BB1075F6191C08520053EF91 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB1075F6191C08520053EF91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB1075F5191C08520053EF91 /* Movement Protorype.app */,
+				BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB1075F7191C08520053EF91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB1075F8191C08520053EF91 /* Foundation.framework */,
+				BB1075FA191C08520053EF91 /* CoreGraphics.framework */,
+				BB1075FC191C08520053EF91 /* UIKit.framework */,
+				BB1075FE191C08520053EF91 /* SpriteKit.framework */,
+				BB107621191C08520053EF91 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB107600191C08520053EF91 /* Movement Protorype */ = {
+			isa = PBXGroup;
+			children = (
+				BB107639191C08850053EF91 /* hunter.png */,
+				BB107637191C087A0053EF91 /* grass.png */,
+				BB10768A191C1ECB0053EF91 /* medic.png */,
+				BB107609191C08520053EF91 /* AppDelegate.h */,
+				BB10760A191C08520053EF91 /* AppDelegate.m */,
+				BB107612191C08520053EF91 /* ViewController.h */,
+				BB107613191C08520053EF91 /* ViewController.m */,
+				BB107615191C08520053EF91 /* MyScene.h */,
+				BB107616191C08520053EF91 /* MyScene.m */,
+				BB107686191C17030053EF91 /* Character.h */,
+				BB107687191C17030053EF91 /* Character.m */,
+				BB107618191C08520053EF91 /* Spaceship.png */,
+				BB10761A191C08520053EF91 /* Images.xcassets */,
+				BB107601191C08520053EF91 /* Supporting Files */,
+			);
+			path = "Movement Protorype";
+			sourceTree = "<group>";
+		};
+		BB107601191C08520053EF91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB107689191C17360053EF91 /* Imports and Defines.h */,
+				BB10760C191C08520053EF91 /* Main_iPhone.storyboard */,
+				BB10760F191C08520053EF91 /* Main_iPad.storyboard */,
+				BB107602191C08520053EF91 /* Movement Protorype-Info.plist */,
+				BB107603191C08520053EF91 /* InfoPlist.strings */,
+				BB107606191C08520053EF91 /* main.m */,
+				BB107608191C08520053EF91 /* Movement Protorype-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB107627191C08520053EF91 /* Movement ProtorypeTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */,
+				BB107628191C08520053EF91 /* Supporting Files */,
+			);
+			path = "Movement ProtorypeTests";
+			sourceTree = "<group>";
+		};
+		BB107628191C08520053EF91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB107629191C08520053EF91 /* Movement ProtorypeTests-Info.plist */,
+				BB10762A191C08520053EF91 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB1075F4191C08520053EF91 /* Movement Protorype */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB107631191C08520053EF91 /* Build configuration list for PBXNativeTarget "Movement Protorype" */;
+			buildPhases = (
+				BB1075F1191C08520053EF91 /* Sources */,
+				BB1075F2191C08520053EF91 /* Frameworks */,
+				BB1075F3191C08520053EF91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Movement Protorype";
+			productName = "Movement Protorype";
+			productReference = BB1075F5191C08520053EF91 /* Movement Protorype.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB10761F191C08520053EF91 /* Movement ProtorypeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB107634191C08520053EF91 /* Build configuration list for PBXNativeTarget "Movement ProtorypeTests" */;
+			buildPhases = (
+				BB10761C191C08520053EF91 /* Sources */,
+				BB10761D191C08520053EF91 /* Frameworks */,
+				BB10761E191C08520053EF91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB107626191C08520053EF91 /* PBXTargetDependency */,
+			);
+			name = "Movement ProtorypeTests";
+			productName = "Movement ProtorypeTests";
+			productReference = BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB1075ED191C08520053EF91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "LEON SALGUEIRO VALIENGO BERNI";
+				TargetAttributes = {
+					BB10761F191C08520053EF91 = {
+						TestTargetID = BB1075F4191C08520053EF91;
+					};
+				};
+			};
+			buildConfigurationList = BB1075F0191C08520053EF91 /* Build configuration list for PBXProject "Movement Protorype" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB1075EC191C08520053EF91;
+			productRefGroup = BB1075F6191C08520053EF91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB1075F4191C08520053EF91 /* Movement Protorype */,
+				BB10761F191C08520053EF91 /* Movement ProtorypeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB1075F3191C08520053EF91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB107638191C087A0053EF91 /* grass.png in Resources */,
+				BB10763A191C08850053EF91 /* hunter.png in Resources */,
+				BB107619191C08520053EF91 /* Spaceship.png in Resources */,
+				BB10761B191C08520053EF91 /* Images.xcassets in Resources */,
+				BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */,
+				BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */,
+				BB10768B191C1ECB0053EF91 /* medic.png in Resources */,
+				BB107605191C08520053EF91 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB10761E191C08520053EF91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB10762C191C08520053EF91 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB1075F1191C08520053EF91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB107617191C08520053EF91 /* MyScene.m in Sources */,
+				BB107688191C17030053EF91 /* Character.m in Sources */,
+				BB107614191C08520053EF91 /* ViewController.m in Sources */,
+				BB10760B191C08520053EF91 /* AppDelegate.m in Sources */,
+				BB107607191C08520053EF91 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB10761C191C08520053EF91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB10762E191C08520053EF91 /* Movement_ProtorypeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB107626191C08520053EF91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB1075F4191C08520053EF91 /* Movement Protorype */;
+			targetProxy = BB107625191C08520053EF91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB107603191C08520053EF91 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB107604191C08520053EF91 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BB10760C191C08520053EF91 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB10760D191C08520053EF91 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		BB10760F191C08520053EF91 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB107610191C08520053EF91 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		BB10762A191C08520053EF91 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB10762B191C08520053EF91 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB10762F191C08520053EF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB107630191C08520053EF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB107632191C08520053EF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
+				INFOPLIST_FILE = "Movement Protorype/Movement Protorype-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BB107633191C08520053EF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
+				INFOPLIST_FILE = "Movement Protorype/Movement Protorype-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BB107635191C08520053EF91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Movement Protorype.app/Movement Protorype";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Movement ProtorypeTests/Movement ProtorypeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BB107636191C08520053EF91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Movement Protorype.app/Movement Protorype";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
+				INFOPLIST_FILE = "Movement ProtorypeTests/Movement ProtorypeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB1075F0191C08520053EF91 /* Build configuration list for PBXProject "Movement Protorype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB10762F191C08520053EF91 /* Debug */,
+				BB107630191C08520053EF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB107631191C08520053EF91 /* Build configuration list for PBXNativeTarget "Movement Protorype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB107632191C08520053EF91 /* Debug */,
+				BB107633191C08520053EF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB107634191C08520053EF91 /* Build configuration list for PBXNativeTarget "Movement ProtorypeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB107635191C08520053EF91 /* Debug */,
+				BB107636191C08520053EF91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB1075ED191C08520053EF91 /* Project object */;
+}
