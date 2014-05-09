@@ -66,15 +66,21 @@
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
-        for (SKNode *node in self.children) {
-            if (CGRectContainsPoint (node.frame, touchePoint) && ![node isKindOfClass: [Character class]]) {
+        for (Tile *node in tilesEnabled) {
+            if (CGRectContainsPoint (node.frame, touchePoint)) {
+
                 selectedCharacter.position = CGPointMake(node.position.x+DIFF_X, node.position.y+(W*P*S)/2-DIFF_Y);
+                selectedCharacter.posAtTileMap = node.positionAtTileMap;
                 selectedCharacter = nil;
-                characterIsSelected = FALSE;
                 break;
             }
         }
     }
+    characterIsSelected = FALSE;
+    for (SKSpriteNode * node in tilesEnabled) {
+        node.alpha = 1;
+    }
+    [tilesEnabled removeAllObjects];
     [self compareZPosition];
 }
 
@@ -94,7 +100,49 @@
 }
 
 - (void) startShowingMovableTiles {
+    tilesEnabled = [[NSMutableArray alloc] init];
     
+    Tile * tileAux;
+    if (selectedCharacter.posAtTileMap.x != 4) {
+        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x+1 : selectedCharacter.posAtTileMap.y];
+        if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
+            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x+1 : selectedCharacter.posAtTileMap.y]];
+        }
+    }
+    if (selectedCharacter.posAtTileMap.x != 0) {
+        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x-1 : selectedCharacter.posAtTileMap.y];
+        if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
+            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x-1 : selectedCharacter.posAtTileMap.y]];
+        }
+    }
+    if (selectedCharacter.posAtTileMap.y != 4) {
+        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y+1];
+        if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
+            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y+1]];
+        }
+    }
+    if (selectedCharacter.posAtTileMap.y != 0) {
+        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y-1];
+        if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
+            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y-1]];
+        }
+    }
+    
+    for (SKSpriteNode * node in tilesEnabled) {
+        node.alpha = 0.5;
+    }
+}
+
+- (BOOL) checkIfThereIsACharacterAtPosition : (CGPoint) position {
+    for (SKNode * node in self.children) {
+        if ([node isKindOfClass: [Character class]]) {
+            Character *charAux = (Character *) node;
+            if (charAux.posAtTileMap.x == position.x && charAux.posAtTileMap.y == position.y) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
 }
 
 - (void) createCharacters {
@@ -112,7 +160,7 @@
     self.personagemDois.size = CGSizeMake(W*S, W*P*S);
     self.personagemDois.position = [self returnTileAtPosition:2 :2].position;
     self.personagemDois.position = CGPointMake(self.personagemDois.position.x + DIFF_X, self.personagemDois.position.y+(W*P*S)/2-DIFF_Y);
-    self.personagemUm.posAtTileMap = CGPointMake(2, 2);
+    self.personagemDois.posAtTileMap = CGPointMake(2, 2);
     [self addChild:self.personagemDois];
     
 }

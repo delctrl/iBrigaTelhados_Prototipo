@@ -10,6 +10,7 @@
 
 @interface MyScene : SKScene {
     NSMutableArray *tileMatrix;
+    NSMutableArray *tilesEnabled;
     BOOL characterIsSelected;
     Character *selectedCharacter;
 }
