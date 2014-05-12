@@ -11,7 +11,7 @@
 @interface Tile : SKSpriteNode
 
 @property CGPoint positionAtTileMap;
-
+@property int isOccupiedByTeam;
 
 - (id) initWithPos : (CGPoint) position : (SKTexture *) texture;
 @end

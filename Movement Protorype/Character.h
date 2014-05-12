@@ -10,6 +10,7 @@
 
 @interface Character : SKSpriteNode
 
+@property int team;
 @property CGPoint posAtTileMap;
 @property NSNumber *life;
 @property NSNumber *defense;

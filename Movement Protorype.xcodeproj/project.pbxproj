@@ -17,8 +17,7 @@
 		BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760C191C08520053EF91 /* Main_iPhone.storyboard */; };
 		BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760F191C08520053EF91 /* Main_iPad.storyboard */; };
 		BB107614191C08520053EF91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107613191C08520053EF91 /* ViewController.m */; };
-		BB107617191C08520053EF91 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* MyScene.m */; };
-		BB107619191C08520053EF91 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107618191C08520053EF91 /* Spaceship.png */; };
+		BB107617191C08520053EF91 /* Jogo.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* Jogo.m */; };
 		BB10761B191C08520053EF91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB10761A191C08520053EF91 /* Images.xcassets */; };
 		BB107622191C08520053EF91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB107621191C08520053EF91 /* XCTest.framework */; };
 		BB107623191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
@@ -30,6 +29,8 @@
 		BB107688191C17030053EF91 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* Character.m */; };
 		BB10768B191C1ECB0053EF91 /* medic.png in Resources */ = {isa = PBXBuildFile; fileRef = BB10768A191C1ECB0053EF91 /* medic.png */; };
 		BB1C7B47191D6A9E006F1D19 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1C7B46191D6A9E006F1D19 /* Tile.m */; };
+		F2C2A22019214CE400B1DEC9 /* selectedGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */; };
+		F2C2A22219214D9F00B1DEC9 /* enemyGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +59,8 @@
 		BB107610191C08520053EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		BB107612191C08520053EF91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BB107613191C08520053EF91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BB107615191C08520053EF91 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		BB107616191C08520053EF91 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		BB107618191C08520053EF91 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		BB107615191C08520053EF91 /* Jogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Jogo.h; sourceTree = "<group>"; };
+		BB107616191C08520053EF91 /* Jogo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Jogo.m; sourceTree = "<group>"; };
 		BB10761A191C08520053EF91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movement ProtorypeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB107621191C08520053EF91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -75,6 +75,8 @@
 		BB10768A191C1ECB0053EF91 /* medic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medic.png; sourceTree = "<group>"; };
 		BB1C7B45191D6A9E006F1D19 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		BB1C7B46191D6A9E006F1D19 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedGrass.png; sourceTree = "<group>"; };
+		F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyGrass.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,18 +140,19 @@
 			children = (
 				BB107639191C08850053EF91 /* hunter.png */,
 				BB107637191C087A0053EF91 /* grass.png */,
+				F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */,
+				F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */,
 				BB10768A191C1ECB0053EF91 /* medic.png */,
 				BB107609191C08520053EF91 /* AppDelegate.h */,
 				BB10760A191C08520053EF91 /* AppDelegate.m */,
 				BB107612191C08520053EF91 /* ViewController.h */,
 				BB107613191C08520053EF91 /* ViewController.m */,
-				BB107615191C08520053EF91 /* MyScene.h */,
-				BB107616191C08520053EF91 /* MyScene.m */,
+				BB107615191C08520053EF91 /* Jogo.h */,
+				BB107616191C08520053EF91 /* Jogo.m */,
 				BB107686191C17030053EF91 /* Character.h */,
 				BB107687191C17030053EF91 /* Character.m */,
 				BB1C7B45191D6A9E006F1D19 /* Tile.h */,
 				BB1C7B46191D6A9E006F1D19 /* Tile.m */,
-				BB107618191C08520053EF91 /* Spaceship.png */,
 				BB10761A191C08520053EF91 /* Images.xcassets */,
 				BB107601191C08520053EF91 /* Supporting Files */,
 			);
@@ -265,11 +268,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB107638191C087A0053EF91 /* grass.png in Resources */,
+				F2C2A22219214D9F00B1DEC9 /* enemyGrass.png in Resources */,
 				BB10763A191C08850053EF91 /* hunter.png in Resources */,
-				BB107619191C08520053EF91 /* Spaceship.png in Resources */,
 				BB10761B191C08520053EF91 /* Images.xcassets in Resources */,
 				BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */,
 				BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */,
+				F2C2A22019214CE400B1DEC9 /* selectedGrass.png in Resources */,
 				BB10768B191C1ECB0053EF91 /* medic.png in Resources */,
 				BB107605191C08520053EF91 /* InfoPlist.strings in Resources */,
 			);
@@ -290,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB107617191C08520053EF91 /* MyScene.m in Sources */,
+				BB107617191C08520053EF91 /* Jogo.m in Sources */,
 				BB1C7B47191D6A9E006F1D19 /* Tile.m in Sources */,
 				BB107688191C17030053EF91 /* Character.m in Sources */,
 				BB107614191C08520053EF91 /* ViewController.m in Sources */,
