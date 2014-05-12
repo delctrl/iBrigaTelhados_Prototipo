@@ -62,6 +62,9 @@
     }
 }
 
+
+
+
 - (void) changeCharacterPosition : (NSSet *) touches {
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
@@ -77,12 +80,13 @@
         }
     }
     characterIsSelected = FALSE;
-    for (SKSpriteNode * node in tilesEnabled) {
-        node.alpha = 1;
-    }
+    [self resetAlphas];
     [tilesEnabled removeAllObjects];
     [self compareZPosition];
 }
+
+
+
 
 - (void) selectCharacterToBeMoved : (NSSet *) touches {
     for (UITouch* t in touches) {
@@ -93,11 +97,25 @@
                 selectedCharacter = (Character *) node;
                 characterIsSelected = TRUE;
                 [self startShowingMovableTiles];
+                [self startShowingCharacterVision];
                 break;
             }
         }
     }
 }
+
+- (void) startShowingCharacterVision {
+    
+    [self resetAlphas];
+    [selectedCharacter updateCharacterVision];
+    for(int i = 0; i < tileMatrix.count; i++){
+        
+        Tile *tile1 = [tileMatrix objectAtIndex:i];
+        Tile *tile2 = [selectedCharacter.charMapVision objectAtIndex:i];
+        tile1.alpha = tile2.alpha;
+    }
+}
+
 
 - (void) startShowingMovableTiles {
     tilesEnabled = [[NSMutableArray alloc] init];
@@ -130,6 +148,7 @@
     
     for (SKSpriteNode * node in tilesEnabled) {
         node.alpha = 0.5;
+        
     }
 }
 
@@ -161,7 +180,7 @@
     self.personagemDois.position = [self returnTileAtPosition:2 :2].position;
     self.personagemDois.position = CGPointMake(self.personagemDois.position.x + DIFF_X, self.personagemDois.position.y+(W*P*S)/2-DIFF_Y);
     self.personagemDois.posAtTileMap = CGPointMake(2, 2);
-    [self addChild:self.personagemDois];
+    //[self addChild:self.personagemDois];
     
 }
 
@@ -207,6 +226,15 @@
     pos.x = roundf(pt.x/H);
     pos.y = roundf(pt.y/H);
     return pos;
+}
+
+-(void)resetAlphas{
+    
+    for(Tile *selectedTile in tileMatrix){
+        
+        selectedTile.alpha =1;
+    }
+    
 }
 
 @end

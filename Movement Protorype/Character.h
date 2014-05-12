@@ -15,7 +15,9 @@
 @property NSNumber *defense;
 @property NSNumber *attack;
 @property NSNumber *initiative;
+@property NSMutableArray *charMapVision;
 
-- (id) initWithTexture : (SKTexture *) texture;
+-(id) initWithTexture : (SKTexture *) texture;
+-(void) updateCharacterVision;
 
 @end

@@ -11,7 +11,8 @@
 @interface Tile : SKSpriteNode
 
 @property CGPoint positionAtTileMap;
-
+@property int visionType;
+@property SKLabelNode *lblCoords;
 
 - (id) initWithPos : (CGPoint) position : (SKTexture *) texture;
 @end
