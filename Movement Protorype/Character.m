@@ -68,9 +68,6 @@
             
             selectedTile.alpha = 1 - (distance *0.2);
             
-            NSLog(@"Tile X:%.f  Y:%.f  dist:%d  opacity:%.2f ", selectedTile.positionAtTileMap.x, selectedTile.positionAtTileMap.y, distance, selectedTile.alpha);
-            
-            
         }
 }
 
