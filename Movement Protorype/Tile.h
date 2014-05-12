@@ -11,8 +11,12 @@
 @interface Tile : SKSpriteNode
 
 @property CGPoint positionAtTileMap;
+<<<<<<< HEAD
 @property int visionType;
 @property SKLabelNode *lblCoords;
+=======
+@property int isOccupiedByTeam;
+>>>>>>> FETCH_HEAD
 
 - (id) initWithPos : (CGPoint) position : (SKTexture *) texture;
 @end
