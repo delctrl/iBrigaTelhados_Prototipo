@@ -36,11 +36,6 @@
     
 }
 
-
-
-
-
-
 -(int) returnTileX: (int)x Y:(int)y{
     
     return x*MAP_W + y;

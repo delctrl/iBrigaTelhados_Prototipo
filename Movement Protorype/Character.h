@@ -19,13 +19,9 @@
 @property NSNumber *initiative;
 @property NSMutableArray *charMapVision;
 
-<<<<<<< HEAD
 - (id) initWithTexture : (SKTexture *) texture;
 - (id) initWithTexture:(SKTexture*) texture nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition;
 - (void) changePositionWithDifferences:(CGPoint) position;
-=======
--(id) initWithTexture : (SKTexture *) texture;
 -(void) updateCharacterVision;
->>>>>>> FETCH_HEAD
 
 @end

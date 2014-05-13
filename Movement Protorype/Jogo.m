@@ -81,7 +81,7 @@
                     }
                 }
                 
-                selectedCharacter.position = CGPointMake(node.position.x+DIFF_X, node.position.y+(W*P*S)/2-DIFF_Y);
+                [selectedCharacter changePositionWithDifferences:node.position];
                 selectedCharacter.posAtTileMap = node.positionAtTileMap;
                 node.isOccupiedByTeam = selectedCharacter.team;
                 selectedCharacter = nil;
@@ -114,7 +114,7 @@
             return;
         }
         tileAux = [self returnTileAtPosition : character.posAtTileMap.x+1 : character.posAtTileMap.y];
-        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        [character changePositionWithDifferences:tile.position];
         character.posAtTileMap = tileAux.positionAtTileMap;
         tileAux.isOccupiedByTeam = character.team;
         return;
@@ -126,7 +126,7 @@
             return;
         }
         tileAux = [self returnTileAtPosition : character.posAtTileMap.x-1 : character.posAtTileMap.y];
-        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        [character changePositionWithDifferences:tileAux.position];
         character.posAtTileMap = tileAux.positionAtTileMap;
         tileAux.isOccupiedByTeam = character.team;
         return;
@@ -138,7 +138,7 @@
             return;
         }
         tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y+1];
-        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        [character changePositionWithDifferences:tileAux.position];
         character.posAtTileMap = tileAux.positionAtTileMap;
         tileAux.isOccupiedByTeam = character.team;
         return;
@@ -150,7 +150,7 @@
             return;
         }
         tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y-1];
-        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        [character changePositionWithDifferences:tileAux.position];
         character.posAtTileMap = tileAux.positionAtTileMap;
         tileAux.isOccupiedByTeam = character.team;
         return;
@@ -254,8 +254,6 @@
 }
 
 - (void) createCharacters {
-    
-<<<<<<< HEAD:Movement Protorype/MyScene.m
     SKTexture *textureCharacter = [SKTexture textureWithImageNamed:@"hunter.png"];
     self.character01 = [[Character alloc] initWithTexture:textureCharacter
                                              nodePosition:[self returnTileAtPosition:0 :0].position
@@ -267,30 +265,6 @@
                                              nodePosition:[self returnTileAtPosition:2 :2].position
                                             arrayPosition:CGPointMake(2, 2)];
     [self addChild:self.character02];
-=======
-    SKTexture *character = [SKTexture textureWithImageNamed:@"hunter.png"];
-    self.personagemUm = [[Character alloc] initWithTexture: character];
-    self.personagemUm.size = CGSizeMake(W*S, W*P*S);
-    self.personagemUm.position = [self returnTileAtPosition:0 :0].position;
-    self.personagemUm.position = CGPointMake(self.personagemUm.position.x + DIFF_X, self.personagemUm.position.y+(W*P*S)/2-DIFF_Y);
-    self.personagemUm.posAtTileMap = CGPointMake(0, 0);
-    self.personagemUm.team = 1;
-    [self returnTileAtPosition: 0: 0].isOccupiedByTeam = 1;
-    self.personagemUm.textureName = @"hunter.png";
-    [self addChild:self.personagemUm];
-    
-    character = [SKTexture textureWithImageNamed:@"medic.png"];
-    self.personagemDois = [[Character alloc] initWithTexture: character];
-    self.personagemDois.size = CGSizeMake(W*S, W*P*S);
-    self.personagemDois.position = [self returnTileAtPosition:2 :2].position;
-    self.personagemDois.position = CGPointMake(self.personagemDois.position.x + DIFF_X, self.personagemDois.position.y+(W*P*S)/2-DIFF_Y);
-    self.personagemDois.posAtTileMap = CGPointMake(2, 2);
-    self.personagemDois.team = 2;
-    [self returnTileAtPosition: 2: 2].isOccupiedByTeam = 2;
-    self.personagemDois.textureName = @"medic.png";
-    [self addChild:self.personagemDois];
->>>>>>> FETCH_HEAD:Movement Protorype/Jogo.m
-    
 }
 
 - (void) createTerrain {
@@ -300,8 +274,8 @@
     for (int i=0; i<5; i++) {
         for (int j=0; j <5 ; j++) {
             Tile *tileNode = [[Tile alloc] initWithPos: CGPointMake(i, j) : grassTile];
-            tileNode.size = CGSizeMake(W, H);
-            tileNode.position = [self getIsoPosition:CGPointMake(i*H, j*H)];
+            tileNode.size = CGSizeMake(WIDTH_TILE, HEIGHT_TILE);
+            tileNode.position = [self getIsoPosition:CGPointMake(i*HEIGHT_TILE, j*HEIGHT_TILE)];
             tileNode.isOccupiedByTeam = 0;
             [tileMatrix addObject: tileNode];
             [self addChild:tileNode];

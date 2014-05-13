@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C5C845B192197B100088BF2 /* oculto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C845A192197B100088BF2 /* oculto.png */; };
+		5BD106FE1922900F00B633A4 /* CharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD106FD1922900F00B633A4 /* CharacterTests.m */; };
 		BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB1075FB191C08520053EF91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FA191C08520053EF91 /* CoreGraphics.framework */; };
 		BB1075FD191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
@@ -24,7 +25,6 @@
 		BB107623191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB107624191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
 		BB10762C191C08520053EF91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB10762A191C08520053EF91 /* InfoPlist.strings */; };
-		BB10762E191C08520053EF91 /* Movement_ProtorypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */; };
 		BB107638191C087A0053EF91 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107637191C087A0053EF91 /* grass.png */; };
 		BB10763A191C08850053EF91 /* hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107639191C08850053EF91 /* hunter.png */; };
 		BB107688191C17030053EF91 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* Character.m */; };
@@ -46,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		3C5C845A192197B100088BF2 /* oculto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oculto.png; sourceTree = "<group>"; };
+		5BD106FD1922900F00B633A4 /* CharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTests.m; sourceTree = "<group>"; };
+		5BD106FF1922904600B633A4 /* Imports and Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imports and Defines.h"; sourceTree = "<group>"; };
 		BB1075F5191C08520053EF91 /* Movement Protorype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movement Protorype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1075F8191C08520053EF91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB1075FA191C08520053EF91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,12 +70,10 @@
 		BB107621191C08520053EF91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BB107629191C08520053EF91 /* Movement ProtorypeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Movement ProtorypeTests-Info.plist"; sourceTree = "<group>"; };
 		BB10762B191C08520053EF91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement_ProtorypeTests.m; sourceTree = "<group>"; };
 		BB107637191C087A0053EF91 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
 		BB107639191C08850053EF91 /* hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunter.png; sourceTree = "<group>"; };
 		BB107686191C17030053EF91 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		BB107687191C17030053EF91 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
-		BB107689191C17360053EF91 /* Imports and Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imports and Defines.h"; sourceTree = "<group>"; };
 		BB10768A191C1ECB0053EF91 /* medic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medic.png; sourceTree = "<group>"; };
 		BB1C7B45191D6A9E006F1D19 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		BB1C7B46191D6A9E006F1D19 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		BB107601191C08520053EF91 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BB107689191C17360053EF91 /* Imports and Defines.h */,
+				5BD106FF1922904600B633A4 /* Imports and Defines.h */,
 				BB10760C191C08520053EF91 /* Main_iPhone.storyboard */,
 				BB10760F191C08520053EF91 /* Main_iPad.storyboard */,
 				BB107602191C08520053EF91 /* Movement Protorype-Info.plist */,
@@ -179,8 +179,8 @@
 		BB107627191C08520053EF91 /* Movement ProtorypeTests */ = {
 			isa = PBXGroup;
 			children = (
-				BB10762D191C08520053EF91 /* Movement_ProtorypeTests.m */,
 				BB107628191C08520053EF91 /* Supporting Files */,
+				5BD106FD1922900F00B633A4 /* CharacterTests.m */,
 			);
 			path = "Movement ProtorypeTests";
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB10762E191C08520053EF91 /* Movement_ProtorypeTests.m in Sources */,
+				5BD106FE1922900F00B633A4 /* CharacterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
