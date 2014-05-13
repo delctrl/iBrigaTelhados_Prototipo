@@ -8,14 +8,11 @@
 
 #import "Character.h"
 
-@implementation Character {
-    int matrixVision [5][5];
-}
+@implementation Character
 
 - (id) initWithTexture : (SKTexture *) texture {
     self = [super init];
     self.texture = texture;
-<<<<<<< HEAD
     [self initCharVision];
     
     return self;
@@ -86,9 +83,12 @@
     self.posAtTileMap = arrayPosition;
     self.team = team;
     
-=======
->>>>>>> FETCH_HEAD
     return self;
+}
+
+-(void)changePositionWithDifferences:(CGPoint)position
+{
+    self.position = CGPointMake(position.x+CHAR_DIFF_X, position.y+(HEIGHT_TILE*CHAR_SIZE_RATE)/2-CHAR_DIFF_Y);
 }
 
 @end
