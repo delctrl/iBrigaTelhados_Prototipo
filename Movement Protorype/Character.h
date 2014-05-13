@@ -17,5 +17,7 @@
 @property NSNumber *initiative;
 
 - (id) initWithTexture : (SKTexture *) texture;
+- (id) initWithTexture:(SKTexture*) texture nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition;
+- (void) changePositionWithDifferences:(CGPoint) position;
 
 @end

@@ -15,8 +15,8 @@
     Character *selectedCharacter;
 }
 
-@property Character *personagemUm;
-@property Character *personagemDois;
+@property Character *character01;
+@property Character *character02;
 
 - (void) createTerrain;
 

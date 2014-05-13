@@ -147,21 +147,17 @@
 
 - (void) createCharacters {
     
-    SKTexture *character = [SKTexture textureWithImageNamed:@"hunter.png"];
-    self.personagemUm = [[Character alloc] initWithTexture: character];
-    self.personagemUm.size = CGSizeMake(W*S, W*P*S);
-    self.personagemUm.position = [self returnTileAtPosition:0 :0].position;
-    self.personagemUm.position = CGPointMake(self.personagemUm.position.x + DIFF_X, self.personagemUm.position.y+(W*P*S)/2-DIFF_Y);
-    self.personagemUm.posAtTileMap = CGPointMake(0, 0);
-    [self addChild:self.personagemUm];
+    SKTexture *textureCharacter = [SKTexture textureWithImageNamed:@"hunter.png"];
+    self.character01 = [[Character alloc] initWithTexture:textureCharacter
+                                             nodePosition:[self returnTileAtPosition:0 :0].position
+                                            arrayPosition:CGPointMake(0, 0)];
+    [self addChild:self.character01];
     
-    character = [SKTexture textureWithImageNamed:@"medic.png"];
-    self.personagemDois = [[Character alloc] initWithTexture: character];
-    self.personagemDois.size = CGSizeMake(W*S, W*P*S);
-    self.personagemDois.position = [self returnTileAtPosition:2 :2].position;
-    self.personagemDois.position = CGPointMake(self.personagemDois.position.x + DIFF_X, self.personagemDois.position.y+(W*P*S)/2-DIFF_Y);
-    self.personagemDois.posAtTileMap = CGPointMake(2, 2);
-    [self addChild:self.personagemDois];
+    textureCharacter = [SKTexture textureWithImageNamed:@"medic.png"];
+    self.character02 = [[Character alloc] initWithTexture:textureCharacter
+                                             nodePosition:[self returnTileAtPosition:2 :2].position
+                                            arrayPosition:CGPointMake(2, 2)];
+    [self addChild:self.character02];
     
 }
 
@@ -204,8 +200,8 @@
 
 - (CGPoint) getCoordinates : (CGPoint) pt {
     CGPoint pos;
-    pos.x = roundf(pt.x/H);
-    pos.y = roundf(pt.y/H);
+    pos.x = roundf(pt.x/HEIGHT_TILE);
+    pos.y = roundf(pt.y/HEIGHT_TILE);
     return pos;
 }
 
