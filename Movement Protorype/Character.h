@@ -20,7 +20,7 @@
 @property NSMutableArray *charMapVision;
 
 - (id) initWithTexture : (SKTexture *) texture;
-- (id) initWithTexture:(SKTexture*) texture nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition;
+- (id) initWithTexture:(NSString*) textureName nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition team:(int)team;
 - (void) changePositionWithDifferences:(CGPoint) position;
 -(void) updateCharacterVision;
 

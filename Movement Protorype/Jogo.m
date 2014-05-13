@@ -71,7 +71,7 @@
         
         for (Tile *node in tilesEnabled) {
             if (CGRectContainsPoint (node.frame, touchePoint)) {
-                [self returnTileAtPosition: selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y].isOccupiedByTeam = 0;
+                [self returnTileAtPosition:selectedCharacter.posAtTileMap].isOccupiedByTeam = 0;
                 
                 if (node.isOccupiedByTeam > 0) {
                     for (Character * charNode in self.children) {
@@ -107,54 +107,37 @@
 
 - (void) checkPushMovement : (Tile *) tile : (Character *) character {
     Tile* tileAux = [[Tile alloc] init];
+    CGPoint aux;
     
     if (character.posAtTileMap.x - selectedCharacter.posAtTileMap.x == 1) {
         if (character.posAtTileMap.x == 4) {
             [character removeFromParent];
             return;
         }
-        tileAux = [self returnTileAtPosition : character.posAtTileMap.x+1 : character.posAtTileMap.y];
-        [character changePositionWithDifferences:tile.position];
-        character.posAtTileMap = tileAux.positionAtTileMap;
-        tileAux.isOccupiedByTeam = character.team;
-        return;
-    }
-    
-    if (character.posAtTileMap.x - selectedCharacter.posAtTileMap.x == -1) {
+        aux = CGPointMake(character.posAtTileMap.x+1, character.posAtTileMap.y);
+    } else if (character.posAtTileMap.x - selectedCharacter.posAtTileMap.x == -1) {
         if (character.posAtTileMap.x == 0) {
             [character removeFromParent];
             return;
         }
-        tileAux = [self returnTileAtPosition : character.posAtTileMap.x-1 : character.posAtTileMap.y];
-        [character changePositionWithDifferences:tileAux.position];
-        character.posAtTileMap = tileAux.positionAtTileMap;
-        tileAux.isOccupiedByTeam = character.team;
-        return;
-    }
-    
-    if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == 1) {
+        aux = CGPointMake(character.posAtTileMap.x-1, character.posAtTileMap.y);
+    } else if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == 1) {
         if (character.posAtTileMap.y == 4) {
             [character removeFromParent];
             return;
         }
-        tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y+1];
-        [character changePositionWithDifferences:tileAux.position];
-        character.posAtTileMap = tileAux.positionAtTileMap;
-        tileAux.isOccupiedByTeam = character.team;
-        return;
-    }
-    
-    if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == -1) {
+        aux = CGPointMake(character.posAtTileMap.x, character.posAtTileMap.y+1);
+    } else if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == -1) {
         if (character.posAtTileMap.y == 0) {
             [character removeFromParent];
             return;
         }
-        tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y-1];
-        [character changePositionWithDifferences:tileAux.position];
-        character.posAtTileMap = tileAux.positionAtTileMap;
-        tileAux.isOccupiedByTeam = character.team;
-        return;
+        aux = CGPointMake(character.posAtTileMap.x, character.posAtTileMap.y-1);
     }
+    tileAux = [self returnTileAtPosition: aux];
+    [character changePositionWithDifferences:tileAux.position];
+    character.posAtTileMap = tileAux.positionAtTileMap;
+    tileAux.isOccupiedByTeam = character.team;
 }
 
 
@@ -211,28 +194,33 @@
     tilesEnabled = [[NSMutableArray alloc] init];
     
     Tile * tileAux;
+    CGPoint aux;
     if (selectedCharacter.posAtTileMap.x != 4) {
-        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x+1 : selectedCharacter.posAtTileMap.y];
+        aux = CGPointMake(selectedCharacter.posAtTileMap.x+1, selectedCharacter.posAtTileMap.y);
+        tileAux = [self returnTileAtPosition: aux];
         if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
-            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x+1 : selectedCharacter.posAtTileMap.y]];
+            [tilesEnabled addObject: [self returnTileAtPosition:aux]];
         }
     }
     if (selectedCharacter.posAtTileMap.x != 0) {
-        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x-1 : selectedCharacter.posAtTileMap.y];
+        aux = CGPointMake(selectedCharacter.posAtTileMap.x-1, selectedCharacter.posAtTileMap.y);
+        tileAux = [self returnTileAtPosition:aux];
         if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
-            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x-1 : selectedCharacter.posAtTileMap.y]];
+            [tilesEnabled addObject: [self returnTileAtPosition:aux]];
         }
     }
     if (selectedCharacter.posAtTileMap.y != 4) {
-        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y+1];
+        aux = CGPointMake(selectedCharacter.posAtTileMap.x, selectedCharacter.posAtTileMap.y+1);
+        tileAux = [self returnTileAtPosition: aux];
         if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
-            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y+1]];
+            [tilesEnabled addObject: [self returnTileAtPosition: aux]];
         }
     }
     if (selectedCharacter.posAtTileMap.y != 0) {
-        tileAux = [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y-1];
+        aux = CGPointMake(selectedCharacter.posAtTileMap.x, selectedCharacter.posAtTileMap.y-1);
+        tileAux = [self returnTileAtPosition :aux];
         if (![self checkIfThereIsACharacterAtPosition: tileAux.positionAtTileMap]) {
-            [tilesEnabled addObject: [self returnTileAtPosition : selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y-1]];
+            [tilesEnabled addObject: [self returnTileAtPosition: aux]];
         }
     }
     
@@ -247,23 +235,39 @@
 }
 
 - (BOOL) checkIfThereIsACharacterAtPosition : (CGPoint) position {
-    if ([self returnTileAtPosition:position.x :position.y].isOccupiedByTeam == selectedCharacter.team) {
+    if ([self returnTileAtPosition:position].isOccupiedByTeam == selectedCharacter.team) {
         return TRUE;
     }
     return FALSE;
 }
 
 - (void) createCharacters {
-    SKTexture *textureCharacter = [SKTexture textureWithImageNamed:@"hunter.png"];
-    self.character01 = [[Character alloc] initWithTexture:textureCharacter
-                                             nodePosition:[self returnTileAtPosition:0 :0].position
-                                            arrayPosition:CGPointMake(0, 0)];
+    CGPoint pointAux;
+    
+    pointAux = CGPointMake(0, 0);
+    self.character01 = [[Character alloc] initWithTexture:@"hunter"
+                                             nodePosition:[self returnTileAtPosition:pointAux].position
+                                            arrayPosition:pointAux
+                                                     team:1];
+    [self returnTileAtPosition:pointAux].isOccupiedByTeam = self.character01.team;
     [self addChild:self.character01];
     
-    textureCharacter = [SKTexture textureWithImageNamed:@"medic.png"];
-    self.character02 = [[Character alloc] initWithTexture:textureCharacter
-                                             nodePosition:[self returnTileAtPosition:2 :2].position
-                                            arrayPosition:CGPointMake(2, 2)];
+    
+    
+    pointAux = CGPointMake(2, 2);
+    self.character02 = [[Character alloc] initWithTexture:@"medic"
+                                             nodePosition:[self returnTileAtPosition:pointAux].position
+                                            arrayPosition:pointAux
+                                                     team:2];
+    [self returnTileAtPosition:pointAux].isOccupiedByTeam = self.character02.team;
+    [self addChild:self.character02];
+    
+    pointAux = CGPointMake(3, 3);
+    self.character02 = [[Character alloc] initWithTexture:@"medic"
+                                             nodePosition:[self returnTileAtPosition:pointAux].position
+                                            arrayPosition:pointAux
+                                                     team:2];
+    [self returnTileAtPosition:pointAux].isOccupiedByTeam = self.character02.team;
     [self addChild:self.character02];
 }
 
@@ -283,8 +287,8 @@
     }
 }
 
-- (Tile *) returnTileAtPosition : (int) i : (int) j {
-    return [tileMatrix objectAtIndex: 5*i+j];
+- (Tile *) returnTileAtPosition : (CGPoint) pointAtMatrix{
+    return [tileMatrix objectAtIndex: 5*pointAtMatrix.x+pointAtMatrix.y];
 }
 
 - (CGPoint) getIsoPosition : (CGPoint) pt {
