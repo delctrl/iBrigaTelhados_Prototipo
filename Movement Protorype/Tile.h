@@ -12,6 +12,11 @@
 
 @property CGPoint positionAtTileMap;
 
+@property int visionType;
+@property SKLabelNode *lblCoords;
+
+@property int isOccupiedByTeam;
+
 
 - (id) initWithPos : (CGPoint) position : (SKTexture *) texture;
 @end
