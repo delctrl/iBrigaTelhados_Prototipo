@@ -22,6 +22,6 @@
 - (id) initWithTexture : (SKTexture *) texture;
 - (id) initWithTexture:(NSString*) textureName nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition team:(int)team;
 - (void) changePositionWithDifferences:(CGPoint) position;
--(void) updateCharacterVision;
+- (void) updateCharacterVision;
 
 @end

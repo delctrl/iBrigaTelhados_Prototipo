@@ -18,6 +18,4 @@
 @property Character *character01;
 @property Character *character02;
 
-- (void) createTerrain;
-
 @end

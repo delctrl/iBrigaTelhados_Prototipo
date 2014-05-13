@@ -186,8 +186,6 @@
         }
         tile1.alpha = tile2.alpha;
     }
-    
-    
 }
 
 - (void) startShowingMovableTiles {
