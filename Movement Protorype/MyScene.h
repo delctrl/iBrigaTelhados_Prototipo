@@ -8,15 +8,15 @@
 
 #import "Imports and Defines.h"
 
-@interface Jogo : SKScene {
+@interface MyScene : SKScene {
     NSMutableArray *tileMatrix;
     NSMutableArray *tilesEnabled;
     BOOL characterIsSelected;
     Character *selectedCharacter;
 }
 
-@property Character *character01;
-@property Character *character02;
+@property Character *personagemUm;
+@property Character *personagemDois;
 
 - (void) createTerrain;
 

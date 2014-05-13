@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Jogo.h"
+#import "MyScene.h"
 
 @implementation ViewController
 
@@ -21,7 +21,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [Jogo sceneWithSize:skView.bounds.size];
+    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

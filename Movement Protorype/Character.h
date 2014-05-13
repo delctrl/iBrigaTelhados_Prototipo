@@ -10,18 +10,18 @@
 
 @interface Character : SKSpriteNode
 
-@property int team;
-@property NSString *textureName;
 @property CGPoint posAtTileMap;
 @property NSNumber *life;
 @property NSNumber *defense;
 @property NSNumber *attack;
 @property NSNumber *initiative;
-@property NSMutableArray *charMapVision;
 
 - (id) initWithTexture : (SKTexture *) texture;
+<<<<<<< HEAD
 - (id) initWithTexture:(NSString*) textureName nodePosition:(CGPoint)position arrayPosition:(CGPoint)arrayPosition team:(int)team;
 - (void) changePositionWithDifferences:(CGPoint) position;
 -(void) updateCharacterVision;
+=======
+>>>>>>> FETCH_HEAD
 
 @end

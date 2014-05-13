@@ -12,13 +12,11 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Character.h"
 #import "Tile.h"
-#define HEIGHT_TILE 70
-#define WIDTH_TILE 140
-#define CHAR_SIZE_RATE 1.5
-#define SCALE 0.6
-#define CHAR_DIFF_X 10
-#define CHAR_DIFF_Y 10
-#define MAP_H 5
-#define MAP_W 5
+#define H 70
+#define W 140
+#define P 1.5
+#define S 0.6
+#define DIFF_X 10
+#define DIFF_Y 10
 
 #endif
