@@ -18,5 +18,7 @@
 #define S 0.6
 #define DIFF_X 10
 #define DIFF_Y 10
+#define MAP_H 5
+#define MAP_W 5
 
 #endif

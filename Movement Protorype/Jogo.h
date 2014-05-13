@@ -8,7 +8,7 @@
 
 #import "Imports and Defines.h"
 
-@interface MyScene : SKScene {
+@interface Jogo : SKScene {
     NSMutableArray *tileMatrix;
     NSMutableArray *tilesEnabled;
     BOOL characterIsSelected;

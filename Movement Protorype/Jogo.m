@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 LEON SALGUEIRO VALIENGO BERNI. All rights reserved.
 //
 
-#import "MyScene.h"
+#import "Jogo.h"
 
-@implementation MyScene
+@implementation Jogo
 
 -(id) initWithSize : (CGSize) size {
     if (self = [super initWithSize:size]) {
@@ -62,27 +62,102 @@
     }
 }
 
+
+
+
 - (void) changeCharacterPosition : (NSSet *) touches {
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
         for (Tile *node in tilesEnabled) {
             if (CGRectContainsPoint (node.frame, touchePoint)) {
-
+                [self returnTileAtPosition: selectedCharacter.posAtTileMap.x : selectedCharacter.posAtTileMap.y].isOccupiedByTeam = 0;
+                
+                if (node.isOccupiedByTeam > 0) {
+                    for (Character * charNode in self.children) {
+                        if ([charNode isKindOfClass: [Character class]] && CGRectContainsPoint (charNode.frame, node.position)) {
+                            [self checkPushMovement : node : charNode];
+                        }
+                    }
+                }
+                
                 selectedCharacter.position = CGPointMake(node.position.x+DIFF_X, node.position.y+(W*P*S)/2-DIFF_Y);
                 selectedCharacter.posAtTileMap = node.positionAtTileMap;
+                node.isOccupiedByTeam = selectedCharacter.team;
                 selectedCharacter = nil;
                 break;
+                
             }
         }
     }
     characterIsSelected = FALSE;
+
+    [self resetAlphas];
+
     for (SKSpriteNode * node in tilesEnabled) {
-        node.alpha = 1;
+        node.texture = [SKTexture textureWithImageNamed:@"grass.png"];
     }
+
     [tilesEnabled removeAllObjects];
     [self compareZPosition];
 }
+
+
+
+
+- (void) checkPushMovement : (Tile *) tile : (Character *) character {
+    Tile* tileAux = [[Tile alloc] init];
+    
+    if (character.posAtTileMap.x - selectedCharacter.posAtTileMap.x == 1) {
+        if (character.posAtTileMap.x == 4) {
+            [character removeFromParent];
+            return;
+        }
+        tileAux = [self returnTileAtPosition : character.posAtTileMap.x+1 : character.posAtTileMap.y];
+        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        character.posAtTileMap = tileAux.positionAtTileMap;
+        tileAux.isOccupiedByTeam = character.team;
+        return;
+    }
+    
+    if (character.posAtTileMap.x - selectedCharacter.posAtTileMap.x == -1) {
+        if (character.posAtTileMap.x == 0) {
+            [character removeFromParent];
+            return;
+        }
+        tileAux = [self returnTileAtPosition : character.posAtTileMap.x-1 : character.posAtTileMap.y];
+        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        character.posAtTileMap = tileAux.positionAtTileMap;
+        tileAux.isOccupiedByTeam = character.team;
+        return;
+    }
+    
+    if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == 1) {
+        if (character.posAtTileMap.y == 4) {
+            [character removeFromParent];
+            return;
+        }
+        tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y+1];
+        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        character.posAtTileMap = tileAux.positionAtTileMap;
+        tileAux.isOccupiedByTeam = character.team;
+        return;
+    }
+    
+    if (character.posAtTileMap.y - selectedCharacter.posAtTileMap.y == -1) {
+        if (character.posAtTileMap.y == 0) {
+            [character removeFromParent];
+            return;
+        }
+        tileAux = [self returnTileAtPosition : character.posAtTileMap.x : character.posAtTileMap.y-1];
+        character.position = CGPointMake(tileAux.position.x+DIFF_X, tileAux.position.y+(W*P*S)/2-DIFF_Y);
+        character.posAtTileMap = tileAux.positionAtTileMap;
+        tileAux.isOccupiedByTeam = character.team;
+        return;
+    }
+}
+
+
 
 - (void) selectCharacterToBeMoved : (NSSet *) touches {
     for (UITouch* t in touches) {
@@ -93,10 +168,43 @@
                 selectedCharacter = (Character *) node;
                 characterIsSelected = TRUE;
                 [self startShowingMovableTiles];
+                [self startShowingCharacterVision];
                 break;
             }
         }
     }
+}
+
+
+- (void) startShowingCharacterVision {
+    
+    [self resetAlphas];
+    [selectedCharacter updateCharacterVision];
+    for(int i = 0; i < tileMatrix.count; i++){
+        Tile *tile1 = [tileMatrix objectAtIndex:i];
+        Tile *tile2 = [selectedCharacter.charMapVision objectAtIndex:i];
+        if (tile1.isOccupiedByTeam > 0) {
+            for (Character * charNode in self.children) {
+                if ([charNode isKindOfClass: [Character class]] && CGRectContainsPoint (charNode.frame, tile1.position)) {
+                    if (charNode.team != selectedCharacter.team) {
+                        if (tile2.visionType == 4) {
+                            charNode.alpha = 0;
+                        }
+                        if (tile2.visionType == 3) {
+                            charNode.alpha = 1;
+                            charNode.texture = [SKTexture textureWithImageNamed:@"oculto.png"];;
+                        }
+                        if (tile2.visionType == 2) {
+                            charNode.alpha = tile2.alpha;
+                        }
+                    }
+                }
+            }
+        }
+        tile1.alpha = tile2.alpha;
+    }
+    
+    
 }
 
 - (void) startShowingMovableTiles {
@@ -128,25 +236,26 @@
         }
     }
     
-    for (SKSpriteNode * node in tilesEnabled) {
-        node.alpha = 0.5;
+    for (Tile * node in tilesEnabled) {
+        if (node.isOccupiedByTeam > 0) {
+            node.texture = [SKTexture textureWithImageNamed:@"enemyGrass.png"];
+        } else {
+            node.texture = [SKTexture textureWithImageNamed:@"selectedGrass.png"];
+        }
+
     }
 }
 
 - (BOOL) checkIfThereIsACharacterAtPosition : (CGPoint) position {
-    for (SKNode * node in self.children) {
-        if ([node isKindOfClass: [Character class]]) {
-            Character *charAux = (Character *) node;
-            if (charAux.posAtTileMap.x == position.x && charAux.posAtTileMap.y == position.y) {
-                return TRUE;
-            }
-        }
+    if ([self returnTileAtPosition:position.x :position.y].isOccupiedByTeam == selectedCharacter.team) {
+        return TRUE;
     }
     return FALSE;
 }
 
 - (void) createCharacters {
     
+<<<<<<< HEAD:Movement Protorype/MyScene.m
     SKTexture *textureCharacter = [SKTexture textureWithImageNamed:@"hunter.png"];
     self.character01 = [[Character alloc] initWithTexture:textureCharacter
                                              nodePosition:[self returnTileAtPosition:0 :0].position
@@ -158,6 +267,29 @@
                                              nodePosition:[self returnTileAtPosition:2 :2].position
                                             arrayPosition:CGPointMake(2, 2)];
     [self addChild:self.character02];
+=======
+    SKTexture *character = [SKTexture textureWithImageNamed:@"hunter.png"];
+    self.personagemUm = [[Character alloc] initWithTexture: character];
+    self.personagemUm.size = CGSizeMake(W*S, W*P*S);
+    self.personagemUm.position = [self returnTileAtPosition:0 :0].position;
+    self.personagemUm.position = CGPointMake(self.personagemUm.position.x + DIFF_X, self.personagemUm.position.y+(W*P*S)/2-DIFF_Y);
+    self.personagemUm.posAtTileMap = CGPointMake(0, 0);
+    self.personagemUm.team = 1;
+    [self returnTileAtPosition: 0: 0].isOccupiedByTeam = 1;
+    self.personagemUm.textureName = @"hunter.png";
+    [self addChild:self.personagemUm];
+    
+    character = [SKTexture textureWithImageNamed:@"medic.png"];
+    self.personagemDois = [[Character alloc] initWithTexture: character];
+    self.personagemDois.size = CGSizeMake(W*S, W*P*S);
+    self.personagemDois.position = [self returnTileAtPosition:2 :2].position;
+    self.personagemDois.position = CGPointMake(self.personagemDois.position.x + DIFF_X, self.personagemDois.position.y+(W*P*S)/2-DIFF_Y);
+    self.personagemDois.posAtTileMap = CGPointMake(2, 2);
+    self.personagemDois.team = 2;
+    [self returnTileAtPosition: 2: 2].isOccupiedByTeam = 2;
+    self.personagemDois.textureName = @"medic.png";
+    [self addChild:self.personagemDois];
+>>>>>>> FETCH_HEAD:Movement Protorype/Jogo.m
     
 }
 
@@ -170,6 +302,7 @@
             Tile *tileNode = [[Tile alloc] initWithPos: CGPointMake(i, j) : grassTile];
             tileNode.size = CGSizeMake(W, H);
             tileNode.position = [self getIsoPosition:CGPointMake(i*H, j*H)];
+            tileNode.isOccupiedByTeam = 0;
             [tileMatrix addObject: tileNode];
             [self addChild:tileNode];
         }
@@ -203,6 +336,20 @@
     pos.x = roundf(pt.x/HEIGHT_TILE);
     pos.y = roundf(pt.y/HEIGHT_TILE);
     return pos;
+}
+
+-(void)resetAlphas{
+    
+    for(SKSpriteNode *node in self.children){
+        if ([node isKindOfClass: [SKSpriteNode class]]) {
+            node.alpha = 1;
+            if ([node isKindOfClass: [Character class]]) {
+                Character *aux = (Character *) node;
+                aux.texture = [SKTexture textureWithImageNamed: aux.textureName];
+            }
+        }
+    }
+    
 }
 
 @end
