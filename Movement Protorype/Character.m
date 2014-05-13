@@ -63,7 +63,6 @@
             if(distance > 4)
                 distance = 4;
             
-            
             selectedTile.visionType = distance;
             
             selectedTile.alpha = 1 - (distance *0.2);
@@ -75,7 +74,7 @@
     
     for(Tile *selectedTile in self.charMapVision){
         
-        selectedTile.alpha =1;
+        selectedTile.alpha = 1;
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C5C845B192197B100088BF2 /* oculto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C845A192197B100088BF2 /* oculto.png */; };
 		BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB1075FB191C08520053EF91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FA191C08520053EF91 /* CoreGraphics.framework */; };
 		BB1075FD191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C5C845A192197B100088BF2 /* oculto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oculto.png; sourceTree = "<group>"; };
 		BB1075F5191C08520053EF91 /* Movement Protorype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movement Protorype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1075F8191C08520053EF91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB1075FA191C08520053EF91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +145,7 @@
 				F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */,
 				F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */,
 				BB10768A191C1ECB0053EF91 /* medic.png */,
+				3C5C845A192197B100088BF2 /* oculto.png */,
 				BB107609191C08520053EF91 /* AppDelegate.h */,
 				BB10760A191C08520053EF91 /* AppDelegate.m */,
 				BB107612191C08520053EF91 /* ViewController.h */,
@@ -274,6 +277,7 @@
 				BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */,
 				BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */,
 				F2C2A22019214CE400B1DEC9 /* selectedGrass.png in Resources */,
+				3C5C845B192197B100088BF2 /* oculto.png in Resources */,
 				BB10768B191C1ECB0053EF91 /* medic.png in Resources */,
 				BB107605191C08520053EF91 /* InfoPlist.strings in Resources */,
 			);

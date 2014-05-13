@@ -11,6 +11,7 @@
 @interface Character : SKSpriteNode
 
 @property int team;
+@property NSString *textureName;
 @property CGPoint posAtTileMap;
 @property NSNumber *life;
 @property NSNumber *defense;

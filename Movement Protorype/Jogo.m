@@ -187,7 +187,16 @@
             for (Character * charNode in self.children) {
                 if ([charNode isKindOfClass: [Character class]] && CGRectContainsPoint (charNode.frame, tile1.position)) {
                     if (charNode.team != selectedCharacter.team) {
-                    charNode.alpha = tile2.alpha;
+                        if (tile2.visionType == 4) {
+                            charNode.alpha = 0;
+                        }
+                        if (tile2.visionType == 3) {
+                            charNode.alpha = 1;
+                            charNode.texture = [SKTexture textureWithImageNamed:@"oculto.png"];;
+                        }
+                        if (tile2.visionType == 2) {
+                            charNode.alpha = tile2.alpha;
+                        }
                     }
                 }
             }
@@ -227,12 +236,6 @@
         }
     }
     
-
-    for (SKSpriteNode * node in tilesEnabled) {
-        node.alpha = 0.5;
-    }
-    
-
     for (Tile * node in tilesEnabled) {
         if (node.isOccupiedByTeam > 0) {
             node.texture = [SKTexture textureWithImageNamed:@"enemyGrass.png"];
@@ -260,6 +263,7 @@
     self.personagemUm.posAtTileMap = CGPointMake(0, 0);
     self.personagemUm.team = 1;
     [self returnTileAtPosition: 0: 0].isOccupiedByTeam = 1;
+    self.personagemUm.textureName = @"hunter.png";
     [self addChild:self.personagemUm];
     
     character = [SKTexture textureWithImageNamed:@"medic.png"];
@@ -270,6 +274,7 @@
     self.personagemDois.posAtTileMap = CGPointMake(2, 2);
     self.personagemDois.team = 2;
     [self returnTileAtPosition: 2: 2].isOccupiedByTeam = 2;
+    self.personagemDois.textureName = @"medic.png";
     [self addChild:self.personagemDois];
     
 }
@@ -324,6 +329,10 @@
     for(SKSpriteNode *node in self.children){
         if ([node isKindOfClass: [SKSpriteNode class]]) {
             node.alpha = 1;
+            if ([node isKindOfClass: [Character class]]) {
+                Character *aux = (Character *) node;
+                aux.texture = [SKTexture textureWithImageNamed: aux.textureName];
+            }
         }
     }
     
