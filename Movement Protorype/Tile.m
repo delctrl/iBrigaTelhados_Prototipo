@@ -13,12 +13,6 @@
 - (id) initWithPos : (CGPoint) position : (SKTexture *) texture {
     self = [super initWithTexture: texture];
     self.positionAtTileMap = position;
-    self.visionType = 4;
-//    self.lblCoords = [[SKLabelNode alloc] init];
-//    self.lblCoords.text =[NSString stringWithFormat:@"%.f , %.f",position.x, position.y];
-//    self.lblCoords.fontSize = 20;
-//    self.lblCoords.position = CGPointMake(0, 0);
-//    [self addChild:self.lblCoords];
     return self;
 }
 
