@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5BD106FE1922900F00B633A4 /* CharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD106FD1922900F00B633A4 /* CharacterTests.m */; };
-		5BD10701192295FC00B633A4 /* oculto.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD10700192295FC00B633A4 /* oculto.png */; };
 		5BD107031922AD1900B633A4 /* TileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD107021922AD1900B633A4 /* TileTests.m */; };
 		5BD107051922B02700B633A4 /* JogoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD107041922B02700B633A4 /* JogoTests.m */; };
 		BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
@@ -22,18 +21,13 @@
 		BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760F191C08520053EF91 /* Main_iPad.storyboard */; };
 		BB107614191C08520053EF91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107613191C08520053EF91 /* ViewController.m */; };
 		BB107617191C08520053EF91 /* Jogo.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* Jogo.m */; };
-		BB10761B191C08520053EF91 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB10761A191C08520053EF91 /* Images.xcassets */; };
 		BB107622191C08520053EF91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB107621191C08520053EF91 /* XCTest.framework */; };
 		BB107623191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB107624191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
 		BB10762C191C08520053EF91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB10762A191C08520053EF91 /* InfoPlist.strings */; };
-		BB107638191C087A0053EF91 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107637191C087A0053EF91 /* grass.png */; };
-		BB10763A191C08850053EF91 /* hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = BB107639191C08850053EF91 /* hunter.png */; };
 		BB107688191C17030053EF91 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* Character.m */; };
-		BB10768B191C1ECB0053EF91 /* medic.png in Resources */ = {isa = PBXBuildFile; fileRef = BB10768A191C1ECB0053EF91 /* medic.png */; };
 		BB1C7B47191D6A9E006F1D19 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1C7B46191D6A9E006F1D19 /* Tile.m */; };
-		F2C2A22019214CE400B1DEC9 /* selectedGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */; };
-		F2C2A22219214D9F00B1DEC9 /* enemyGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */; };
+		F2275A561923E1BC004AE794 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2275A551923E1BC004AE794 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +43,6 @@
 /* Begin PBXFileReference section */
 		5BD106FD1922900F00B633A4 /* CharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTests.m; sourceTree = "<group>"; };
 		5BD106FF1922904600B633A4 /* Imports and Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Imports and Defines.h"; sourceTree = "<group>"; };
-		5BD10700192295FC00B633A4 /* oculto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oculto.png; sourceTree = "<group>"; };
 		5BD107021922AD1900B633A4 /* TileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileTests.m; sourceTree = "<group>"; };
 		5BD107041922B02700B633A4 /* JogoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoTests.m; sourceTree = "<group>"; };
 		BB1075F5191C08520053EF91 /* Movement Protorype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movement Protorype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,20 +62,15 @@
 		BB107613191C08520053EF91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB107615191C08520053EF91 /* Jogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Jogo.h; sourceTree = "<group>"; };
 		BB107616191C08520053EF91 /* Jogo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Jogo.m; sourceTree = "<group>"; };
-		BB10761A191C08520053EF91 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movement ProtorypeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB107621191C08520053EF91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BB107629191C08520053EF91 /* Movement ProtorypeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Movement ProtorypeTests-Info.plist"; sourceTree = "<group>"; };
 		BB10762B191C08520053EF91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BB107637191C087A0053EF91 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
-		BB107639191C08850053EF91 /* hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunter.png; sourceTree = "<group>"; };
 		BB107686191C17030053EF91 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		BB107687191C17030053EF91 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
-		BB10768A191C1ECB0053EF91 /* medic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medic.png; sourceTree = "<group>"; };
 		BB1C7B45191D6A9E006F1D19 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		BB1C7B46191D6A9E006F1D19 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
-		F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedGrass.png; sourceTree = "<group>"; };
-		F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyGrass.png; sourceTree = "<group>"; };
+		F2275A551923E1BC004AE794 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,12 +132,6 @@
 		BB107600191C08520053EF91 /* Movement Protorype */ = {
 			isa = PBXGroup;
 			children = (
-				BB107639191C08850053EF91 /* hunter.png */,
-				BB107637191C087A0053EF91 /* grass.png */,
-				F2C2A22119214D9F00B1DEC9 /* enemyGrass.png */,
-				F2C2A21F19214CE400B1DEC9 /* selectedGrass.png */,
-				BB10768A191C1ECB0053EF91 /* medic.png */,
-				5BD10700192295FC00B633A4 /* oculto.png */,
 				BB107609191C08520053EF91 /* AppDelegate.h */,
 				BB10760A191C08520053EF91 /* AppDelegate.m */,
 				BB107612191C08520053EF91 /* ViewController.h */,
@@ -160,7 +142,7 @@
 				BB107687191C17030053EF91 /* Character.m */,
 				BB1C7B45191D6A9E006F1D19 /* Tile.h */,
 				BB1C7B46191D6A9E006F1D19 /* Tile.m */,
-				BB10761A191C08520053EF91 /* Images.xcassets */,
+				F2275A551923E1BC004AE794 /* Images.xcassets */,
 				BB107601191C08520053EF91 /* Supporting Files */,
 			);
 			path = "Movement Protorype";
@@ -247,6 +229,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "LEON SALGUEIRO VALIENGO BERNI";
 				TargetAttributes = {
+					BB1075F4191C08520053EF91 = {
+						DevelopmentTeam = 8X9FYHGAJG;
+					};
 					BB10761F191C08520053EF91 = {
 						TestTargetID = BB1075F4191C08520053EF91;
 					};
@@ -276,15 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB107638191C087A0053EF91 /* grass.png in Resources */,
-				5BD10701192295FC00B633A4 /* oculto.png in Resources */,
-				F2C2A22219214D9F00B1DEC9 /* enemyGrass.png in Resources */,
-				BB10763A191C08850053EF91 /* hunter.png in Resources */,
-				BB10761B191C08520053EF91 /* Images.xcassets in Resources */,
+				F2275A561923E1BC004AE794 /* Images.xcassets in Resources */,
 				BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */,
 				BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */,
-				F2C2A22019214CE400B1DEC9 /* selectedGrass.png in Resources */,
-				BB10768B191C1ECB0053EF91 /* medic.png in Resources */,
 				BB107605191C08520053EF91 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,10 +425,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
 				INFOPLIST_FILE = "Movement Protorype/Movement Protorype-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,10 +442,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Movement Protorype/Movement Protorype-Prefix.pch";
 				INFOPLIST_FILE = "Movement Protorype/Movement Protorype-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

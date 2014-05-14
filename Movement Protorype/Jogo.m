@@ -10,13 +10,14 @@
 
 @implementation Jogo
 
+
 -(id) initWithSize : (CGSize) size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         characterIsSelected = FALSE;
         [self createTerrain];
         [self createCharacters];
-        
+        [self compareZPosition];
     }
     return self;
 }
@@ -169,7 +170,7 @@
         if (tile1.isOccupiedByTeam > 0) {
             for (Character * charNode in self.children) {
                 if ([charNode isKindOfClass: [Character class]] && CGRectContainsPoint (charNode.frame, tile1.position)) {
-                    if (charNode.team != selectedCharacter.team) {
+                    if (charNode.team != selectedCharacter.team && CGPointEqualToPoint(charNode.posAtTileMap, tile1.positionAtTileMap)) {
                         if (tile2.visionType == 4) {
                             charNode.alpha = 0;
                         }
