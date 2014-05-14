@@ -5,9 +5,11 @@
 //  Created by LEON SALGUEIRO VALIENGO BERNI on 08/05/14.
 //  Copyright (c) 2014 LEON SALGUEIRO VALIENGO BERNI. All rights reserved.
 //
+/** @test @details @note @bug @skip @overload **/
+
 
 #import "ViewController.h"
-#import "Jogo.h"
+#import "BPTJogo.h"
 
 @implementation ViewController
 
@@ -21,7 +23,7 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [Jogo sceneWithSize:skView.bounds.size];
+    SKScene * scene = [BPTJogo sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
