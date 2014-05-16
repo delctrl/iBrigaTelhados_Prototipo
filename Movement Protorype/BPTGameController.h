@@ -10,15 +10,19 @@
 #import "BPTPlayer.h"
 #import "BPTMapController.h"
 #import "BPTCharacter.h"
+#import "BPTGameScene.h"
 
 @interface BPTGameController : NSObject {
     BPTPlayer *playerOne;
     BPTPlayer *playerTwo;
-    BPTMapController *mapController;
 }
+
+@property BPTMapController *mapController;
 
 - (NSMutableArray *) getAllCharacters;
 
 - (void) createCharactesPlayerOne: (NSMutableArray *) characters;
 - (void) createCharactesPlayerTwo: (NSMutableArray *) characters;
+
+- (BPTCharacter*) checkIfCharacterWasSelectedOnPoint: (CGPoint) touchPoint onScene: (BPTGameScene*) scene;
 @end

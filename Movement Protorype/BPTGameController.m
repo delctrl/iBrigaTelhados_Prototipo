@@ -71,4 +71,28 @@
 - (void) createCharactesPlayerTwo: (NSMutableArray *) characters {
     [playerTwo setCharacters: characters];
 }
+
+- (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position onScene: (BPTGameScene*) scene {
+    
+    if ([scene returnTileAtPosition:position].nbrIsOccupiedByTeam == [scene charSelectedCharacter].nbrTeam) {
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+- (BPTCharacter*) checkIfCharacterWasSelectedOnPoint: (CGPoint) touchPoint onScene: (BPTGameScene*) scene {
+    
+    for (SKNode *node in scene.children) {
+        if (CGRectContainsPoint (node.frame, touchPoint) && [node isKindOfClass: [BPTCharacter class]]) {
+            [scene startShowingMovableTiles];
+            [scene startShowingCharacterVision];
+            return (BPTCharacter *) node;
+        }
+    }
+    
+    return Nil;
+}
+
+
 @end

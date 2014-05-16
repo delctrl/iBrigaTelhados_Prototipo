@@ -23,7 +23,8 @@
         
         boolCharacterIsSelected = FALSE;
         
-        [self createTerrain];
+        /** @skip @details createTerrain ainda não  publico **/
+        //marrTileMatrix = [[gameController mapController] createTerrain];
         [self createCharacters];
         [self resetZPosition];
     }
@@ -201,28 +202,24 @@
     }
 }
 
-/**@c**/
-- (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position {
-    
-    if ([self returnTileAtPosition:position].nbrIsOccupiedByTeam == charSelectedCharacter.nbrTeam) {
-        return TRUE;
-    }
-    
-    return FALSE;
+/** @author Rodrigo @details Permite o acesso da variavel ao GameController **/
+- (BPTCharacter*)charSelectedCharacter {
+    return charSelectedCharacter;
 }
+
+/**@c**/
 - (void) selectCharacterToBeMoved: (NSSet *) touches {
     
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
-        for (SKNode *node in self.children) {
-            if (CGRectContainsPoint (node.frame, touchePoint) && [node isKindOfClass: [BPTCharacter class]]) {
-                charSelectedCharacter = (BPTCharacter *) node;
-                boolCharacterIsSelected = TRUE;
-                [self startShowingMovableTiles];
-                [self startShowingCharacterVision];
-                break;
-            }
+        charSelectedCharacter = [gameController checkIfCharacterWasSelectedOnPoint:touchePoint onScene:self];
+        if(charSelectedCharacter)
+        {
+            boolCharacterIsSelected = TRUE;
+        }
+        else{
+            boolCharacterIsSelected = FALSE;
         }
     }
 }
