@@ -22,7 +22,7 @@
         gameController = [[BPTGameController alloc] init];
         
         boolCharacterIsSelected = FALSE;
-        
+
         [self createTerrain];
         [self createCharacters];
         [self resetZPosition];

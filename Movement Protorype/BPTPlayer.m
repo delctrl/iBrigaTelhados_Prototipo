@@ -16,5 +16,6 @@
 
 - (void) setCharacters: (NSMutableArray *) characters {
     marrCharacters = characters;
+    
 }
 @end
