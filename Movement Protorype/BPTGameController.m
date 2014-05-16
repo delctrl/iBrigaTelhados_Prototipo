@@ -17,6 +17,7 @@
     if (self) {
         playerOne = [[BPTPlayer alloc] init];
         playerTwo = [[BPTPlayer alloc] init];
+        [self setMapController:[[BPTMapController alloc] init]];
         [self criaCharTestes];
     }
     
@@ -72,26 +73,86 @@
     [playerTwo setCharacters: characters];
 }
 
-- (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position onScene: (BPTGameScene*) scene {
+- (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position SelectedCharacter:(BPTCharacter*) character {
     
-    if ([scene returnTileAtPosition:position].nbrIsOccupiedByTeam == [scene charSelectedCharacter].nbrTeam) {
+    if ([[self mapController] returnTileAtPosition:position].nbrIsOccupiedByTeam == character.nbrTeam) {
         return TRUE;
     }
     
     return FALSE;
 }
 
-- (BPTCharacter*) checkIfCharacterWasSelectedOnPoint: (CGPoint) touchPoint onScene: (BPTGameScene*) scene {
+- (BPTCharacter*) checkIfCharacterWasSelectedOnPoint: (CGPoint) touchPoint andChildrenArray: (NSArray*) sceneChildren{
     
-    for (SKNode *node in scene.children) {
+    for (SKNode *node in sceneChildren) {
         if (CGRectContainsPoint (node.frame, touchPoint) && [node isKindOfClass: [BPTCharacter class]]) {
-            [scene startShowingMovableTiles];
-            [scene startShowingCharacterVision];
             return (BPTCharacter *) node;
         }
     }
     
     return Nil;
+}
+
+- (void) checkPushMovementForTile: (BPTTile *) tile AndFirstCharacter: (BPTCharacter *) character01 AndSecondCharacter: (BPTCharacter*) character02{
+    
+    BPTTile* tileAux = [[BPTTile alloc] init];
+    CGPoint aux;
+    int bounds = 0;
+    
+    for (int i = -1; i<2; i++) {
+        if (i == 0) {
+            continue;
+        }
+        
+        if (i > 0) {
+            bounds = 4;
+        }
+        
+        if (character01.cgpPosAtTileMap.x - character02.cgpPosAtTileMap.x == i) {
+            if (character01.cgpPosAtTileMap.x == bounds) {
+                [character01 removeFromParent];
+                return;
+            }
+            aux = CGPointMake(character01.cgpPosAtTileMap.x+i, character01.cgpPosAtTileMap.y);
+        }
+        else if (character01.cgpPosAtTileMap.y - character02.cgpPosAtTileMap.y == i) {
+            if (character01.cgpPosAtTileMap.y == bounds) {
+                [character01 removeFromParent];
+                return;
+            }
+            aux = CGPointMake(character01.cgpPosAtTileMap.x, character01.cgpPosAtTileMap.y+i);
+        }
+    }
+    
+    tileAux = [[self mapController] returnTileAtPosition: aux];
+    [character01 changePositionWithDifferences:tileAux.position];
+    
+    character01.cgpPosAtTileMap = tileAux.cgpPosAtTileMap;
+    tileAux.nbrIsOccupiedByTeam = character01.nbrTeam;
+}
+
+- (BPTCharacter*) checkCharacterToBeMoved: (BPTCharacter*) character AndPoint: (CGPoint)touchPoint onMovimentArray:(NSMutableArray*)marrTilesEnabled andCharacterArray: (NSMutableArray*) sceneChildren {
+    for (BPTTile *node in marrTilesEnabled) {
+        if (CGRectContainsPoint (node.frame, touchPoint)) {
+            [[self mapController] returnTileAtPosition:character.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
+            
+            if (node.nbrIsOccupiedByTeam > 0) {
+                for (BPTCharacter * charNode in sceneChildren) {
+                    if ([charNode isKindOfClass: [BPTCharacter class]] && CGRectContainsPoint (charNode.frame, node.position)) {
+                        [self checkPushMovementForTile: node AndFirstCharacter: charNode AndSecondCharacter:character];
+                    }
+                }
+            }
+            
+            [character changePositionWithDifferences:node.position];
+            character.cgpPosAtTileMap = node.cgpPosAtTileMap;
+            node.nbrIsOccupiedByTeam = character.nbrTeam;
+            
+            return Nil;
+        }
+    }
+    
+    return character;
 }
 
 

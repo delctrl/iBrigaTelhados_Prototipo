@@ -25,10 +25,4 @@
     BOOL boolCharacterIsSelected;
 }
 
-- (CGPoint) getIsoPosition: (CGPoint) pt;
-- (BPTTile *) returnTileAtPosition: (CGPoint) pointAtMatrix;
-- (BPTCharacter*)charSelectedCharacter;
-- (void) startShowingMovableTiles;
-- (void) startShowingCharacterVision;
-
 @end

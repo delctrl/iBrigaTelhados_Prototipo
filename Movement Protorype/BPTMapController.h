@@ -9,15 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "BPTImportsDefines.h"
 #import "BPTTile.h"
-#import "BPTGameScene.h"
 
 @interface BPTMapController : NSObject{
 
     NSMutableArray *tileMap;
 }
 
-
-
-
+- (BPTTile *) returnTileAtPosition: (CGPoint) pointAtMatrix;
+-(NSMutableArray *) getMap;
 
 @end

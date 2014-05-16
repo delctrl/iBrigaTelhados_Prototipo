@@ -22,14 +22,11 @@
         gameController = [[BPTGameController alloc] init];
         
         boolCharacterIsSelected = FALSE;
-<<<<<<< HEAD
         
         /** @skip @details createTerrain ainda não  publico **/
-        //marrTileMatrix = [[gameController mapController] createTerrain];
-=======
-
-        [self createTerrain];
->>>>>>> FETCH_HEAD
+        marrTileMatrix = [[gameController mapController] getMap];
+        [self addTilesToScene];
+        
         [self createCharacters];
         [self resetZPosition];
     }
@@ -125,38 +122,33 @@
     
     BPTTile * tileAux;
     CGPoint aux;
+    int bounds = 0;
     
-    if (charSelectedCharacter.cgpPosAtTileMap.x != 4) {
-        aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x+1, charSelectedCharacter.cgpPosAtTileMap.y);
-        tileAux = [self returnTileAtPosition: aux];
-        if (![self checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap]) {
-            [marrTilesEnabled addObject: [self returnTileAtPosition:aux]];
+    for (int i = -1; i<2; i++) {
+        if (i == 0) {
+            continue;
+        }
+        
+        if (i > 0) {
+            bounds = 4;
+        }
+        
+        if (charSelectedCharacter.cgpPosAtTileMap.x != bounds) {
+            aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x+i, charSelectedCharacter.cgpPosAtTileMap.y);
+            tileAux = [[gameController mapController]returnTileAtPosition: aux ];
+            if (![gameController checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap SelectedCharacter:charSelectedCharacter]) {
+                [marrTilesEnabled addObject: [[gameController mapController] returnTileAtPosition:aux]];
+            }
+        }
+        if (charSelectedCharacter.cgpPosAtTileMap.y != bounds) {
+            aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x, charSelectedCharacter.cgpPosAtTileMap.y+i);
+            tileAux = [[gameController mapController] returnTileAtPosition: aux];
+            if (![gameController checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap SelectedCharacter:charSelectedCharacter]) {
+                [marrTilesEnabled addObject: [[gameController mapController] returnTileAtPosition: aux]];
+            }
         }
     }
-    
-    if (charSelectedCharacter.cgpPosAtTileMap.x != 0) {
-        aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x-1, charSelectedCharacter.cgpPosAtTileMap.y);
-        tileAux = [self returnTileAtPosition:aux];
-        if (![self checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap]) {
-            [marrTilesEnabled addObject: [self returnTileAtPosition:aux]];
-        }
-    }
-    
-    if (charSelectedCharacter.cgpPosAtTileMap.y != 4) {
-        aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x, charSelectedCharacter.cgpPosAtTileMap.y+1);
-        tileAux = [self returnTileAtPosition: aux];
-        if (![self checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap]) {
-            [marrTilesEnabled addObject: [self returnTileAtPosition: aux]];
-        }
-    }
-    
-    if (charSelectedCharacter.cgpPosAtTileMap.y != 0) {
-        aux = CGPointMake(charSelectedCharacter.cgpPosAtTileMap.x, charSelectedCharacter.cgpPosAtTileMap.y-1);
-        tileAux = [self returnTileAtPosition :aux];
-        if (![self checkIfThereIsACharacterAtPosition: tileAux.cgpPosAtTileMap]) {
-            [marrTilesEnabled addObject: [self returnTileAtPosition: aux]];
-        }
-    }
+
     
     for (BPTTile * node in marrTilesEnabled) {
         if (node.nbrIsOccupiedByTeam > 0) {
@@ -167,33 +159,6 @@
 
     }
 }
-- (BPTTile *) returnTileAtPosition: (CGPoint) pointAtMatrix {
-    
-    return [marrTileMatrix objectAtIndex: 5*pointAtMatrix.x+pointAtMatrix.y];
-}
-- (CGPoint) getIsoPosition: (CGPoint) pt {
-    
-    CGPoint isoPos;
-    isoPos.x = pt.x - pt.y;
-    isoPos.y = (pt.x + pt.y)/2;
-    
-    isoPos.x += 370;
-    isoPos.y += 370;
-    
-    return isoPos;
-}
-- (CGPoint) get2DPosition: (CGPoint) pt {
-    CGPoint pos;
-    pos.x = (2*pt.y+pt.x)/2;
-    pos.y = (2*pt.y-pt.x)/2;
-    return pos;
-}
-- (CGPoint) getCoordinates: (CGPoint) pt {
-    CGPoint pos;
-    pos.x = roundf(pt.x/HEIGHT_TILE);
-    pos.y = roundf(pt.y/HEIGHT_TILE);
-    return pos;
-}
 - (void) createCharacters {
     
     NSMutableArray *gameCharacters = [[NSMutableArray alloc] init];
@@ -201,95 +166,34 @@
     [gameCharacters addObjectsFromArray: [gameController getAllCharacters]];
     
     for (BPTCharacter * charNode in gameCharacters) {
-        [charNode changePositionWithDifferences:[self returnTileAtPosition:charNode.cgpPosAtTileMap].position];
-        [self returnTileAtPosition: charNode.cgpPosAtTileMap].nbrIsOccupiedByTeam = charNode.nbrTeam;
+        [charNode changePositionWithDifferences:[[gameController mapController] returnTileAtPosition:charNode.cgpPosAtTileMap].position];
+        [[gameController mapController] returnTileAtPosition: charNode.cgpPosAtTileMap].nbrIsOccupiedByTeam = charNode.nbrTeam;
         [self addChild: charNode];
     }
 }
-
-/** @author Rodrigo @details Permite o acesso da variavel ao GameController **/
-- (BPTCharacter*)charSelectedCharacter {
-    return charSelectedCharacter;
-}
-
-/**@c**/
 - (void) selectCharacterToBeMoved: (NSSet *) touches {
     
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
-        charSelectedCharacter = [gameController checkIfCharacterWasSelectedOnPoint:touchePoint onScene:self];
+        charSelectedCharacter = [gameController checkIfCharacterWasSelectedOnPoint:touchePoint andChildrenArray:self.children];
         if(charSelectedCharacter)
         {
             boolCharacterIsSelected = TRUE;
+            [self startShowingMovableTiles];
+            [self startShowingCharacterVision];
         }
         else{
             boolCharacterIsSelected = FALSE;
         }
     }
 }
-- (void) checkPushMovementForTile: (BPTTile *) tile AndCharacter: (BPTCharacter *) character {
-    
-    BPTTile* tileAux = [[BPTTile alloc] init];
-    CGPoint aux;
-    
-    if (character.cgpPosAtTileMap.x - charSelectedCharacter.cgpPosAtTileMap.x == 1) {
-        if (character.cgpPosAtTileMap.x == 4) {
-            [character removeFromParent];
-            return;
-        }
-        aux = CGPointMake(character.cgpPosAtTileMap.x+1, character.cgpPosAtTileMap.y);
-    } else if (character.cgpPosAtTileMap.x - charSelectedCharacter.cgpPosAtTileMap.x == -1) {
-        if (character.cgpPosAtTileMap.x == 0) {
-            [character removeFromParent];
-            return;
-        }
-        aux = CGPointMake(character.cgpPosAtTileMap.x-1, character.cgpPosAtTileMap.y);
-    } else if (character.cgpPosAtTileMap.y - charSelectedCharacter.cgpPosAtTileMap.y == 1) {
-        if (character.cgpPosAtTileMap.y == 4) {
-            [character removeFromParent];
-            return;
-        }
-        aux = CGPointMake(character.cgpPosAtTileMap.x, character.cgpPosAtTileMap.y+1);
-    } else if (character.cgpPosAtTileMap.y - charSelectedCharacter.cgpPosAtTileMap.y == -1) {
-        if (character.cgpPosAtTileMap.y == 0) {
-            [character removeFromParent];
-            return;
-        }
-        aux = CGPointMake(character.cgpPosAtTileMap.x, character.cgpPosAtTileMap.y-1);
-    }
-    
-    tileAux = [self returnTileAtPosition: aux];
-    [character changePositionWithDifferences:tileAux.position];
-    
-    character.cgpPosAtTileMap = tileAux.cgpPosAtTileMap;
-    tileAux.nbrIsOccupiedByTeam = character.nbrTeam;
-}
 - (void) changeCharacterPosition: (NSSet *) touches {
     
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
-        for (BPTTile *node in marrTilesEnabled) {
-            if (CGRectContainsPoint (node.frame, touchePoint)) {
-                [self returnTileAtPosition:charSelectedCharacter.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
-                
-                if (node.nbrIsOccupiedByTeam > 0) {
-                    for (BPTCharacter * charNode in self.children) {
-                        if ([charNode isKindOfClass: [BPTCharacter class]] && CGRectContainsPoint (charNode.frame, node.position)) {
-                            [self checkPushMovementForTile: node AndCharacter: charNode];
-                        }
-                    }
-                }
-                
-                [charSelectedCharacter changePositionWithDifferences:node.position];
-                charSelectedCharacter.cgpPosAtTileMap = node.cgpPosAtTileMap;
-                node.nbrIsOccupiedByTeam = charSelectedCharacter.nbrTeam;
-                charSelectedCharacter = nil;
-                break;
-                
-            }
-        }
+        charSelectedCharacter = [gameController checkCharacterToBeMoved:charSelectedCharacter AndPoint:touchePoint onMovimentArray:marrTilesEnabled andCharacterArray:self.children];
     }
     boolCharacterIsSelected = FALSE;
     
@@ -301,6 +205,11 @@
     
     [marrTilesEnabled removeAllObjects];
     [self resetZPosition];
+}
+- (void) addTilesToScene {
+    for (SKNode *n in marrTileMatrix) {
+        [self addChild:n];
+    }
 }
 
 @end
