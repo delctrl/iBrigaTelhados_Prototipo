@@ -11,6 +11,13 @@
 #import "BPTTile.h"
 #import "BPTGameScene.h"
 
-@interface BPTMapController : NSObject
+@interface BPTMapController : NSObject{
+
+    NSMutableArray *tileMap;
+}
+
+
+
+
 
 @end

@@ -22,9 +22,14 @@
         gameController = [[BPTGameController alloc] init];
         
         boolCharacterIsSelected = FALSE;
+<<<<<<< HEAD
         
         /** @skip @details createTerrain ainda não  publico **/
         //marrTileMatrix = [[gameController mapController] createTerrain];
+=======
+
+        [self createTerrain];
+>>>>>>> FETCH_HEAD
         [self createCharacters];
         [self resetZPosition];
     }
