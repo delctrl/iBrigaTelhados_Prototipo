@@ -10,8 +10,6 @@
 #define Movement_Protorype_Import_h
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "BPTCharacter.h"
-#import "BPTTile.h"
 
 #define HEIGHT_TILE 70
 #define WIDTH_TILE 140
@@ -28,7 +26,6 @@
  
  O código será escrito inteiramente em inglês, com comentários em português.
  Nomes de classes seguirão o formato: BPTName.
- Toda classe deve ser importada pelo arquivo Imports and Defines, o qual deve ser importado por todas as outras classes.
  Nomes de variáveis começarão com a abreviação do nome da classe. Ex.: Character * charName; Tile * tileName; UIButton * btnName.
  Tentar utilizar ao máximo arrays, ao invés de criar vários objetos como propriedades.
  

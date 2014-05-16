@@ -19,8 +19,8 @@
 		BB10760B191C08520053EF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB10760A191C08520053EF91 /* AppDelegate.m */; };
 		BB10760E191C08520053EF91 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760C191C08520053EF91 /* Main_iPhone.storyboard */; };
 		BB107611191C08520053EF91 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10760F191C08520053EF91 /* Main_iPad.storyboard */; };
-		BB107614191C08520053EF91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107613191C08520053EF91 /* ViewController.m */; };
-		BB107617191C08520053EF91 /* BPTJogo.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* BPTJogo.m */; };
+		BB107614191C08520053EF91 /* BPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107613191C08520053EF91 /* BPTViewController.m */; };
+		BB107617191C08520053EF91 /* BPTGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107616191C08520053EF91 /* BPTGameScene.m */; };
 		BB107622191C08520053EF91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB107621191C08520053EF91 /* XCTest.framework */; };
 		BB107623191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB107624191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
@@ -28,6 +28,9 @@
 		BB107688191C17030053EF91 /* BPTCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = BB107687191C17030053EF91 /* BPTCharacter.m */; };
 		BB1C7B47191D6A9E006F1D19 /* BPTTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1C7B46191D6A9E006F1D19 /* BPTTile.m */; };
 		F2275A561923E1BC004AE794 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2275A551923E1BC004AE794 /* Images.xcassets */; };
+		F24E88A51925392F003CDC67 /* BPTPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F24E88A41925392F003CDC67 /* BPTPlayer.m */; };
+		F2F81C7D1925438E00CF5BC0 /* BPTGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F81C7C1925438E00CF5BC0 /* BPTGameController.m */; };
+		F2F81C801925463100CF5BC0 /* BPTMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F81C7F1925463100CF5BC0 /* BPTMapController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +61,10 @@
 		BB10760A191C08520053EF91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB10760D191C08520053EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		BB107610191C08520053EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		BB107612191C08520053EF91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BB107613191C08520053EF91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BB107615191C08520053EF91 /* BPTJogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTJogo.h; sourceTree = "<group>"; };
-		BB107616191C08520053EF91 /* BPTJogo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPTJogo.m; sourceTree = "<group>"; };
+		BB107612191C08520053EF91 /* BPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTViewController.h; sourceTree = "<group>"; };
+		BB107613191C08520053EF91 /* BPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPTViewController.m; sourceTree = "<group>"; };
+		BB107615191C08520053EF91 /* BPTGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTGameScene.h; sourceTree = "<group>"; };
+		BB107616191C08520053EF91 /* BPTGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPTGameScene.m; sourceTree = "<group>"; };
 		BB107620191C08520053EF91 /* Movement ProtorypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movement ProtorypeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB107621191C08520053EF91 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BB107629191C08520053EF91 /* Movement ProtorypeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Movement ProtorypeTests-Info.plist"; sourceTree = "<group>"; };
@@ -71,6 +74,12 @@
 		BB1C7B45191D6A9E006F1D19 /* BPTTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTTile.h; sourceTree = "<group>"; };
 		BB1C7B46191D6A9E006F1D19 /* BPTTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTTile.m; sourceTree = "<group>"; };
 		F2275A551923E1BC004AE794 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F24E88A31925392F003CDC67 /* BPTPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTPlayer.h; sourceTree = "<group>"; };
+		F24E88A41925392F003CDC67 /* BPTPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTPlayer.m; sourceTree = "<group>"; };
+		F2F81C7B1925438E00CF5BC0 /* BPTGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTGameController.h; sourceTree = "<group>"; };
+		F2F81C7C1925438E00CF5BC0 /* BPTGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTGameController.m; sourceTree = "<group>"; };
+		F2F81C7E1925463100CF5BC0 /* BPTMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTMapController.h; sourceTree = "<group>"; };
+		F2F81C7F1925463100CF5BC0 /* BPTMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTMapController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +198,8 @@
 		F20AC805192407610090624E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BB107615191C08520053EF91 /* BPTJogo.h */,
-				BB107616191C08520053EF91 /* BPTJogo.m */,
+				BB107615191C08520053EF91 /* BPTGameScene.h */,
+				BB107616191C08520053EF91 /* BPTGameScene.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -198,6 +207,12 @@
 		F20AC8061924077E0090624E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2F81C7B1925438E00CF5BC0 /* BPTGameController.h */,
+				F2F81C7C1925438E00CF5BC0 /* BPTGameController.m */,
+				F24E88A31925392F003CDC67 /* BPTPlayer.h */,
+				F24E88A41925392F003CDC67 /* BPTPlayer.m */,
+				F2F81C7E1925463100CF5BC0 /* BPTMapController.h */,
+				F2F81C7F1925463100CF5BC0 /* BPTMapController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -207,8 +222,8 @@
 			children = (
 				BB107609191C08520053EF91 /* AppDelegate.h */,
 				BB10760A191C08520053EF91 /* AppDelegate.m */,
-				BB107612191C08520053EF91 /* ViewController.h */,
-				BB107613191C08520053EF91 /* ViewController.m */,
+				BB107612191C08520053EF91 /* BPTViewController.h */,
+				BB107613191C08520053EF91 /* BPTViewController.m */,
 			);
 			name = "iOS Auxiliars";
 			sourceTree = "<group>";
@@ -323,10 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB107617191C08520053EF91 /* BPTJogo.m in Sources */,
+				BB107617191C08520053EF91 /* BPTGameScene.m in Sources */,
 				BB1C7B47191D6A9E006F1D19 /* BPTTile.m in Sources */,
+				F2F81C7D1925438E00CF5BC0 /* BPTGameController.m in Sources */,
 				BB107688191C17030053EF91 /* BPTCharacter.m in Sources */,
-				BB107614191C08520053EF91 /* ViewController.m in Sources */,
+				BB107614191C08520053EF91 /* BPTViewController.m in Sources */,
+				F2F81C801925463100CF5BC0 /* BPTMapController.m in Sources */,
+				F24E88A51925392F003CDC67 /* BPTPlayer.m in Sources */,
 				BB10760B191C08520053EF91 /* AppDelegate.m in Sources */,
 				BB107607191C08520053EF91 /* main.m in Sources */,
 			);

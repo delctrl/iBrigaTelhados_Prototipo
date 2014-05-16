@@ -71,15 +71,13 @@
 }
 
 /**@a**/
-- (id) initWithTexture: (NSString *) textureName nodePosition: (CGPoint) position arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team {
+- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team {
 
     self = [self initWithTexture: [SKTexture textureWithImageNamed: textureName]];
     self.strTextureName = textureName;
     self.size = CGSizeMake(WIDTH_TILE*SCALE, WIDTH_TILE*CHAR_SIZE_RATE*SCALE);
     self.cgpPosAtTileMap = arrayPosition;
     self.nbrTeam = team;
-
-    [self changePositionWithDifferences:position];
     
     return self;
 }

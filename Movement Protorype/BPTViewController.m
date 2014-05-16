@@ -8,35 +8,33 @@
 /** @test @details @note @bug @skip @overload **/
 
 
-#import "ViewController.h"
-#import "BPTJogo.h"
+#import "BPTViewController.h"
+#import "BPTGameScene.h"
 
-@implementation ViewController
+@implementation BPTViewController
 
-- (void)viewDidLoad
-{
+- (void) viewDidLoad {
     [super viewDidLoad];
-
+    
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
+    SKView * skView = (SKView *) self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [BPTJogo sceneWithSize:skView.bounds.size];
+    BPTGameScene * scene = [BPTGameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+    
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL) shouldAutorotate {
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger) supportedInterfaceOrientations {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return UIInterfaceOrientationMaskAllButUpsideDown;
     } else {
@@ -44,8 +42,7 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }

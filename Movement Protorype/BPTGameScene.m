@@ -8,9 +8,9 @@
 /** @test @details @note @bug @skip @overload **/
 
 
-#import "BPTJogo.h"
+#import "BPTGameScene.h"
 
-@implementation BPTJogo
+@implementation BPTGameScene
 
 
 /**@a: Model | @b: View | @c: Controller **/
@@ -19,11 +19,13 @@
 - (id) initWithSize: (CGSize) size {
     
     if (self = [super initWithSize:size]) {
+        gameController = [[BPTGameController alloc] init];
+        
         boolCharacterIsSelected = FALSE;
         
         [self createTerrain];
         [self createCharacters];
-        [self compareZPosition];
+        [self resetZPosition];
     }
     
     return self;
@@ -31,7 +33,19 @@
 - (void) update: (CFTimeInterval) currentTime {
     
 }
-- (void) compareZPosition {
+- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
+    
+    if (touches.count != 1) {
+        return;
+    }
+    
+    if (boolCharacterIsSelected) {
+        [self changeCharacterPosition: touches];
+    } else {
+        [self selectCharacterToBeMoved: touches];
+    }
+}
+- (void) resetZPosition {
     
     NSMutableArray * allCharacters = [[NSMutableArray alloc] init];
     
@@ -57,17 +71,18 @@
         z--;
     }
 }
-- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
+- (void) resetAlphas {
     
-    if (touches.count != 1) {
-        return;
+    for(SKSpriteNode *node in self.children){
+        if ([node isKindOfClass: [SKSpriteNode class]]) {
+            node.alpha = 1;
+            if ([node isKindOfClass: [BPTCharacter class]]) {
+                BPTCharacter *aux = (BPTCharacter *) node;
+                aux.texture = [SKTexture textureWithImageNamed: aux.strTextureName];
+            }
+        }
     }
     
-    if (boolCharacterIsSelected) {
-        [self changeCharacterPosition: touches];
-    } else {
-        [self selectCharacterToBeMoved: touches];
-    }
 }
 - (void) startShowingCharacterVision {
     
@@ -173,65 +188,16 @@
     pos.y = roundf(pt.y/HEIGHT_TILE);
     return pos;
 }
-- (void) resetAlphas {
-    
-    for(SKSpriteNode *node in self.children){
-        if ([node isKindOfClass: [SKSpriteNode class]]) {
-            node.alpha = 1;
-            if ([node isKindOfClass: [BPTCharacter class]]) {
-                BPTCharacter *aux = (BPTCharacter *) node;
-                aux.texture = [SKTexture textureWithImageNamed: aux.strTextureName];
-            }
-        }
-    }
-    
-}
-
-/**@b @c**/
 - (void) createCharacters {
     
-    CGPoint pointAux;
+    NSMutableArray *gameCharacters = [[NSMutableArray alloc] init];
     
-    pointAux = CGPointMake(0, 0);
-    self.charNumberOne = [[BPTCharacter alloc] initWithTexture:@"hunter"
-                                                nodePosition:[self returnTileAtPosition:pointAux].position
-                                               arrayPosition:pointAux
-                                                        team: [NSNumber numberWithInt:1]];
-    [self returnTileAtPosition:pointAux].nbrIsOccupiedByTeam = self.charNumberOne.nbrTeam;
-    [self addChild:self.charNumberOne];
+    [gameCharacters addObjectsFromArray: [gameController getAllCharacters]];
     
-    
-    
-    pointAux = CGPointMake(2, 2);
-    self.charNumberTwo = [[BPTCharacter alloc] initWithTexture:@"medic"
-                                                nodePosition:[self returnTileAtPosition:pointAux].position
-                                               arrayPosition:pointAux
-                                                        team: [NSNumber numberWithInt:2]];
-    [self returnTileAtPosition:pointAux].nbrIsOccupiedByTeam = self.charNumberTwo.nbrTeam;
-    [self addChild:self.charNumberTwo];
-    
-    pointAux = CGPointMake(3, 3);
-    self.charNumberTwo = [[BPTCharacter alloc] initWithTexture:@"medic"
-                                                nodePosition:[self returnTileAtPosition:pointAux].position
-                                               arrayPosition:pointAux
-                                                        team:[NSNumber numberWithInt:2]];
-    [self returnTileAtPosition:pointAux].nbrIsOccupiedByTeam = self.charNumberTwo.nbrTeam;
-    [self addChild:self.charNumberTwo];
-}
-- (void) createTerrain {
-    
-    marrTileMatrix = [[NSMutableArray alloc] init];
-    SKTexture *grassTile = [SKTexture textureWithImageNamed:@"grass.png"];
-    
-    for (int i=0; i<5; i++) {
-        for (int j=0; j <5 ; j++) {
-            BPTTile *tileNode = [[BPTTile alloc] initWithPos: CGPointMake(i, j) AndTexture: grassTile];
-            tileNode.size = CGSizeMake(WIDTH_TILE, HEIGHT_TILE);
-            tileNode.position = [self getIsoPosition:CGPointMake(i*HEIGHT_TILE, j*HEIGHT_TILE)];
-            tileNode.nbrIsOccupiedByTeam = 0;
-            [marrTileMatrix addObject: tileNode];
-            [self addChild:tileNode];
-        }
+    for (BPTCharacter * charNode in gameCharacters) {
+        [charNode changePositionWithDifferences:[self returnTileAtPosition:charNode.cgpPosAtTileMap].position];
+        [self returnTileAtPosition: charNode.cgpPosAtTileMap].nbrIsOccupiedByTeam = charNode.nbrTeam;
+        [self addChild: charNode];
     }
 }
 
@@ -332,7 +298,7 @@
     }
     
     [marrTilesEnabled removeAllObjects];
-    [self compareZPosition];
+    [self resetZPosition];
 }
 
 @end

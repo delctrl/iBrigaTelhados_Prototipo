@@ -7,6 +7,7 @@
 //
 
 #import "BPTImportsDefines.h"
+#import "BPTTile.h"
 
 @interface BPTCharacter : SKSpriteNode
 
@@ -20,7 +21,7 @@
 @property NSMutableArray *marrCharMapVision;
 
 - (id) initWithTexture : (SKTexture *) texture;
-- (id) initWithTexture: (NSString*) textureName nodePosition: (CGPoint) position arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team;
+- (id) initWithTexture: (NSString*) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team;
 - (void) changePositionWithDifferences: (CGPoint) position;
 - (void) updateCharacterVision;
 
