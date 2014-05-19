@@ -10,6 +10,7 @@
 		5BD106FE1922900F00B633A4 /* CharacterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD106FD1922900F00B633A4 /* CharacterTests.m */; };
 		5BD107031922AD1900B633A4 /* TileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD107021922AD1900B633A4 /* TileTests.m */; };
 		5BD107051922B02700B633A4 /* JogoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD107041922B02700B633A4 /* JogoTests.m */; };
+		5BE6609E192A687F00A488FF /* MapControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6609D192A687F00A488FF /* MapControllerTests.m */; };
 		BB1075F9191C08520053EF91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075F8191C08520053EF91 /* Foundation.framework */; };
 		BB1075FB191C08520053EF91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FA191C08520053EF91 /* CoreGraphics.framework */; };
 		BB1075FD191C08520053EF91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1075FC191C08520053EF91 /* UIKit.framework */; };
@@ -48,6 +49,7 @@
 		5BD106FF1922904600B633A4 /* BPTImportsDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTImportsDefines.h; sourceTree = "<group>"; };
 		5BD107021922AD1900B633A4 /* TileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileTests.m; sourceTree = "<group>"; };
 		5BD107041922B02700B633A4 /* JogoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoTests.m; sourceTree = "<group>"; };
+		5BE6609D192A687F00A488FF /* MapControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
 		BB1075F5191C08520053EF91 /* Movement Protorype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movement Protorype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1075F8191C08520053EF91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB1075FA191C08520053EF91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,6 +173,7 @@
 				5BD106FD1922900F00B633A4 /* CharacterTests.m */,
 				5BD107021922AD1900B633A4 /* TileTests.m */,
 				5BD107041922B02700B633A4 /* JogoTests.m */,
+				5BE6609D192A687F00A488FF /* MapControllerTests.m */,
 			);
 			path = "Movement ProtorypeTests";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE6609E192A687F00A488FF /* MapControllerTests.m in Sources */,
 				5BD106FE1922900F00B633A4 /* CharacterTests.m in Sources */,
 				5BD107031922AD1900B633A4 /* TileTests.m in Sources */,
 				5BD107051922B02700B633A4 /* JogoTests.m in Sources */,

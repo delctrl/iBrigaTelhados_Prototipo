@@ -13,6 +13,6 @@
 }
 
 - (void) setCharacters: (NSMutableArray *) characters;
-
 - (NSMutableArray *) getAllCharacters;
+
 @end

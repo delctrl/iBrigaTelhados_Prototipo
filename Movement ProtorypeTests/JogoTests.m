@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Jogo.h"
+#import "BPTGameScene.h"
 
 @interface JogoTests : XCTestCase
 
@@ -27,31 +27,13 @@
     [super tearDown];
 }
 
-- (void)testIfSceneNeverReturnsNull
+- (void)testIfSceneWillNeverReturnNullWhenInitialized
 {
     // Create and configure the scene.
-    Jogo * scene = [Jogo sceneWithSize:CGSizeMake(200, 300)];
+    BPTGameScene * scene = [BPTGameScene sceneWithSize:CGSizeMake(200, 300)];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     XCTAssertNotEqual(scene, nil, @"Cena não deveria ser nulo");
-}
-
--(void)testIfChar01NeverReturnsNull
-{
-    // Create and configure the scene.
-    Jogo * scene = [Jogo sceneWithSize:CGSizeMake(200, 300)];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    XCTAssertNotEqual(scene.character01, nil, @"Char01 não deveria ser nulo");
-}
-
--(void)testIFChar02NeverReturnsNull
-{
-    // Create and configure the scene.
-    Jogo * scene = [Jogo sceneWithSize:CGSizeMake(200, 300)];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    XCTAssertNotEqual(scene.character02, nil, @"Char02 não deveria ser nulo");
 }
 
 @end

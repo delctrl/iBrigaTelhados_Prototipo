@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Character.h"
+#import "BPTCharacter.h"
 
 @interface CharacterTests : XCTestCase
 
@@ -27,34 +27,34 @@
     [super tearDown];
 }
 
-- (void)testInitWithValidTexture
+- (void)testCharacterInitWithValidTextureWillWork
 {
     SKTexture *texture = [SKTexture textureWithImageNamed:@"hunter.png"];
-    Character *testChar = [[Character alloc] initWithTexture:texture];
+    BPTCharacter *testChar = [[BPTCharacter alloc] initWithTexture:texture];
     XCTAssertNotEqualObjects(testChar, Nil, @"Personagem não devia estar nulo");
     XCTAssertNotEqualObjects(testChar.texture, Nil, @"Textura não devia ser nula");
 }
 
--(void)testInitWithInvalidTexture
+-(void)testCharacterInitWithInvalidTextureWillWork
 {
     SKTexture *texture = nil;
-    Character *testChar = [[Character alloc] initWithTexture:texture];
+    BPTCharacter *testChar = [[BPTCharacter alloc] initWithTexture:texture];
     XCTAssertNotEqualObjects(testChar, Nil, @"Personagem não devia estar nulo");
     XCTAssertEqualObjects(testChar.texture, Nil, @"Textura devia ser nula");
 }
 
--(void)testInitWithValidTextureAndPositionInArrayAndthings
+-(void)testCharacterInitWithValidTextureAndPositionInArrayAndthingsWorkAsExpected
 {
-    Character *testChar = [[Character alloc] initWithTexture:@"hunter" nodePosition:CGPointMake(30, 30) arrayPosition:CGPointMake(3, 4)team:1];
+    BPTCharacter *testChar = [[BPTCharacter alloc] initWithTexture:@"hunter" arrayPosition:CGPointMake(3, 4) team:[NSNumber numberWithInt:1]];
     XCTAssertNotEqualObjects(testChar, Nil, @"Personagem não devia estar nulo");
     XCTAssertNotEqualObjects(testChar.texture, Nil, @"Textura não devia ser nula");
-    XCTAssertEqual(testChar.posAtTileMap.x, 3.0f, @"Posição devia ser 3");
-    XCTAssertEqual(testChar.posAtTileMap.y, 4.0f, @"Posição devia ser 4");
+    XCTAssertEqual(testChar.cgpPosAtTileMap.x, 3.0f, @"Posição devia ser 3");
+    XCTAssertEqual(testChar.cgpPosAtTileMap.y, 4.0f, @"Posição devia ser 4");
 }
 
--(void)testIsometricPositionInScene
+-(void)testIfCharacterIsometricPositionInSceneIsAlwaysValid
 {
-    Character *testChar = [[Character alloc] init];
+    BPTCharacter *testChar = [[BPTCharacter alloc] init];
     [testChar changePositionWithDifferences:CGPointMake(0, 0)];
     XCTAssertEqual(testChar.position.x, 10.0f, @"Posicao X na cena deveria ser 10");
     XCTAssertEqual(testChar.position.y, 42.5f, @"Posição Y na cena deveria ser 42.5");

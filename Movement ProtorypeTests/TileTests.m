@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Tile.h"
+#import "BPTTile.h"
 
 @interface TileTests : XCTestCase
 
@@ -27,9 +27,9 @@
     [super tearDown];
 }
 
-- (void)testIfInitReturnNull
+- (void)testIfTileInitWillNeverReturnNull
 {
-    Tile *t = [[Tile alloc] initWithTexture:Nil color:nil size:CGSizeMake(0, 0)];
+    BPTTile *t = [[BPTTile alloc] initWithTexture:Nil color:nil size:CGSizeMake(0, 0)];
     XCTAssertNotEqual(t, NULL, @"Não deveria ser nulo");
 }
 

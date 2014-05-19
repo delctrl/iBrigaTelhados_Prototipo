@@ -55,6 +55,11 @@
 
 - (BPTTile *) returnTileAtPosition: (CGPoint) pointAtMatrix {
     
+    if (pointAtMatrix.x < 0 || pointAtMatrix.x >= 5 ||
+        pointAtMatrix.y < 0 || pointAtMatrix.y >= 5) {
+        return NULL;
+    }
+    
     return [tileMap objectAtIndex: 5*pointAtMatrix.x+pointAtMatrix.y];
 }
 
