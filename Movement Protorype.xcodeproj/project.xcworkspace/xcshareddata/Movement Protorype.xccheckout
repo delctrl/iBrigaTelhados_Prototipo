@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FB658562-B6F4-432A-A244-4CB69DD3ECA8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Movement Protorype</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>63D0C006-3E56-464F-8C5A-B8FB210CFED8</key>
+		<string>https://github.com/delctrl/iBrigaTelhados_Prototipo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Movement Protorype.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>63D0C006-3E56-464F-8C5A-B8FB210CFED8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/delctrl/iBrigaTelhados_Prototipo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>63D0C006-3E56-464F-8C5A-B8FB210CFED8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>63D0C006-3E56-464F-8C5A-B8FB210CFED8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iBrigaTelhados_Prototipo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
