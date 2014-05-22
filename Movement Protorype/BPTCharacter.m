@@ -18,10 +18,12 @@
 - (id) initWithTexture: (SKTexture *) texture {
     
     self = [super init];
-    self.texture = texture;
-    
-    [self initCharVision];
-    
+    if (self) {
+        self.texture = texture;
+        self.nbrLife = [[NSNumber alloc] initWithInt:4];
+        
+        [self initCharVision];
+    }
     return self;
 }
 

@@ -18,4 +18,15 @@
     marrCharacters = characters;
     
 }
+
+- (id)initWithTeamId: (int) teamId{
+
+    self = [super init];
+    
+    if(self){
+        self.teamId = teamId;
+    }
+    
+    return self;
+}
 @end

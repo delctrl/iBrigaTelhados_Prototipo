@@ -15,8 +15,8 @@
     self = [super init];
     
     if (self) {
-        playerOne = [[BPTPlayer alloc] init];
-        playerTwo = [[BPTPlayer alloc] init];
+        self.playerOne = [[BPTPlayer alloc] initWithTeamId: 1];
+        self.playerTwo = [[BPTPlayer alloc] initWithTeamId: 2];
         [self setMapController:[[BPTMapController alloc] init]];
         [self criaCharTestes];
     }
@@ -60,17 +60,17 @@
 
 - (NSMutableArray *) getAllCharacters {
     NSMutableArray * allCharacters = [[NSMutableArray alloc] init];
-    [allCharacters addObjectsFromArray:[playerOne getAllCharacters]];
-    [allCharacters addObjectsFromArray:[playerTwo getAllCharacters]];
+    [allCharacters addObjectsFromArray:[self.playerOne getAllCharacters]];
+    [allCharacters addObjectsFromArray:[self.playerTwo getAllCharacters]];
     return allCharacters;
 }
 
 - (void) createCharactesPlayerOne: (NSMutableArray *) characters {
-    [playerOne setCharacters: characters];
+    [self.playerOne setCharacters: characters];
 }
 
 - (void) createCharactesPlayerTwo: (NSMutableArray *) characters {
-    [playerTwo setCharacters: characters];
+    [self.playerTwo setCharacters: characters];
 }
 
 - (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position SelectedCharacter:(BPTCharacter*) character {
@@ -111,6 +111,7 @@
         if (character01.cgpPosAtTileMap.x - character02.cgpPosAtTileMap.x == i) {
             if (character01.cgpPosAtTileMap.x == bounds) {
                 [character01 removeFromParent];
+                character01.nbrLife = 0;
                 return;
             }
             aux = CGPointMake(character01.cgpPosAtTileMap.x+i, character01.cgpPosAtTileMap.y);
@@ -118,6 +119,7 @@
         else if (character01.cgpPosAtTileMap.y - character02.cgpPosAtTileMap.y == i) {
             if (character01.cgpPosAtTileMap.y == bounds) {
                 [character01 removeFromParent];
+                character01.nbrLife = 0;
                 return;
             }
             aux = CGPointMake(character01.cgpPosAtTileMap.x, character01.cgpPosAtTileMap.y+i);
@@ -129,6 +131,8 @@
     
     character01.cgpPosAtTileMap = tileAux.cgpPosAtTileMap;
     tileAux.nbrIsOccupiedByTeam = character01.nbrTeam;
+    
+    
 }
 
 - (BPTCharacter*) checkCharacterToBeMoved: (BPTCharacter*) character AndPoint: (CGPoint)touchPoint onMovimentArray:(NSMutableArray*)marrTilesEnabled andCharacterArray: (NSMutableArray*) sceneChildren {
@@ -140,6 +144,10 @@
                 for (BPTCharacter * charNode in sceneChildren) {
                     if ([charNode isKindOfClass: [BPTCharacter class]] && CGRectContainsPoint (charNode.frame, node.position)) {
                         [self checkPushMovementForTile: node AndFirstCharacter: charNode AndSecondCharacter:character];
+                        
+                        [self checkPlayerAliveCharacters:_playerOne];
+                        [self checkPlayerAliveCharacters:_playerTwo];
+
                     }
                 }
             }
@@ -154,6 +162,28 @@
     
     return character;
 }
+
+
+-(void) checkPlayerAliveCharacters: (BPTPlayer *) player{
+
+    int sum = 0;
+    
+    for(BPTCharacter *character in [player getAllCharacters]){
+        
+        sum += [character.nbrLife intValue];
+        
+        if(sum > 0){
+            return;
+        }
+    }
+    
+    
+    NSLog(@"O Player %d perdeu",player.teamId);
+}
+
+
+/**@test @c*/
+
 
 
 @end

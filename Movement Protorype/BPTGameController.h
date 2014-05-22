@@ -11,11 +11,10 @@
 #import "BPTMapController.h"
 #import "BPTCharacter.h"
 
-@interface BPTGameController : NSObject {
-    BPTPlayer *playerOne;
-    BPTPlayer *playerTwo;
-}
+@interface BPTGameController : NSObject
 
+@property BPTPlayer *playerOne;
+@property BPTPlayer *playerTwo;
 @property BPTMapController *mapController;
 
 - (NSMutableArray *) getAllCharacters;

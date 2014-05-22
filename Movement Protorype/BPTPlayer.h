@@ -10,9 +10,13 @@
 
 @interface BPTPlayer : NSObject {
     NSMutableArray *marrCharacters;
+
 }
+
+
+@property int teamId;
 
 - (void) setCharacters: (NSMutableArray *) characters;
 - (NSMutableArray *) getAllCharacters;
-
+- (id)initWithTeamId: (int) teamId;
 @end
