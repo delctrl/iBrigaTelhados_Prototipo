@@ -12,6 +12,8 @@
 
 @implementation BPTCharacter
 
+@synthesize marrMapVision;
+
 /**@a: Model | @b: View | @c: Controller **/
 
 /**@a**/
@@ -22,24 +24,24 @@
         self.texture = texture;
         self.nbrLife = [[NSNumber alloc] initWithInt:4];
         
-        [self initCharVision];
+        [self initVision];
     }
     return self;
 }
 
 /**@a**/
-- (void) initCharVision {
+- (void) initVision {
     
-    self.marrCharMapVision = [[NSMutableArray alloc] init];
+    self.marrMapVision = [[NSMutableArray alloc] init];
     for(int i=0; i< MAP_W; i++){
         for(int j =0; j < MAP_H; j++){
             BPTTile *visionTile = [[BPTTile alloc] initWithPos: CGPointMake(i, j) AndTexture: nil];
     
-            [self.marrCharMapVision addObject:visionTile];
+            [self.marrMapVision addObject:visionTile];
         }
     }
     
-    [self updateCharacterVision];
+    [self updateVision];
 }
 
 /**@a**/
@@ -49,13 +51,13 @@
 }
 
 /**@a**/
-- (void) updateCharacterVision {
+- (void) updateVision {
     
     [self resetAlphas];
     
-    BPTTile *tileCharacter = [self.marrCharMapVision objectAtIndex:[self returnTileAtX:self.cgpPosAtTileMap.x AndAtY:self.cgpPosAtTileMap.y]];
+    BPTTile *tileCharacter = [self.marrMapVision objectAtIndex:[self returnTileAtX:self.cgpPosAtTileMap.x AndAtY:self.cgpPosAtTileMap.y]];
     tileCharacter.nbrVisionType = 0;
-    for(BPTTile *selectedTile in self.marrCharMapVision){
+    for(BPTTile *selectedTile in self.marrMapVision){
         int distance = abs((selectedTile.cgpPosAtTileMap.x - tileCharacter.cgpPosAtTileMap.x)) + abs((selectedTile.cgpPosAtTileMap.y - tileCharacter.cgpPosAtTileMap.y));
         if(distance > 4) {
             distance = 4;
@@ -67,7 +69,7 @@
 
 /**@a**/
 - (void) resetAlphas{
-    for(BPTTile *selectedTile in self.marrCharMapVision){
+    for(BPTTile *selectedTile in self.marrMapVision){
         selectedTile.alpha = 1;
     }
 }

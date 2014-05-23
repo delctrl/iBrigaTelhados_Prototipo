@@ -87,18 +87,21 @@
     }
     
 }
-- (void) startShowingCharacterVision {
+- (void) startShowingVision:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*) nbrTeam{
     
     [self resetAlphas];
-    [charSelectedCharacter updateCharacterVision];
-    
+    [objWithVision updateVision];
+    [self alphaUpdate: objWithVision team:nbrTeam];
+}
+
+- (void) alphaUpdate:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*)nbrTeam{
     for(int i = 0; i < marrTileMatrix.count; i++){
         BPTTile *tile1 = [marrTileMatrix objectAtIndex:i];
-        BPTTile *tile2 = [charSelectedCharacter.marrCharMapVision objectAtIndex:i];
+        BPTTile *tile2 = [objWithVision.marrMapVision objectAtIndex:i];
         if (tile1.nbrIsOccupiedByTeam > 0) {
             for (BPTCharacter * charNode in self.children) {
                 if ([charNode isKindOfClass: [BPTCharacter class]] && CGRectContainsPoint (charNode.frame, tile1.position)) {
-                    if (charNode.nbrTeam != charSelectedCharacter.nbrTeam && CGPointEqualToPoint(charNode.cgpPosAtTileMap, tile1.cgpPosAtTileMap)) {
+                    if (charNode.nbrTeam != nbrTeam && CGPointEqualToPoint(charNode.cgpPosAtTileMap, tile1.cgpPosAtTileMap)) {
                         if ([tile2.nbrVisionType integerValue] == 4) {
                             charNode.alpha = 0;
                         }
@@ -115,7 +118,9 @@
         }
         tile1.alpha = tile2.alpha;
     }
+
 }
+
 - (void) startShowingMovableTiles {
     
     marrTilesEnabled = [[NSMutableArray alloc] init];
@@ -181,7 +186,7 @@
         {
             boolCharacterIsSelected = TRUE;
             [self startShowingMovableTiles];
-            [self startShowingCharacterVision];
+            [self startShowingVision:charSelectedCharacter team:charSelectedCharacter.nbrTeam];
         }
         else{
             boolCharacterIsSelected = FALSE;
@@ -205,10 +210,24 @@
     
     [marrTilesEnabled removeAllObjects];
     [self resetZPosition];
+    
+    [self updateAllCharactersVision];
+    /**@details trocar para o jogador atual*/
+    [self startShowingVision:[gameController playerOne] team:[gameController playerOne].nbrTeam];
 }
 - (void) addTilesToScene {
     for (SKNode *n in marrTileMatrix) {
         [self addChild:n];
+    }
+}
+
+-(void)updateAllCharactersVision
+{
+    for (SKNode *node in self.children) {
+        if ([node class] == [BPTCharacter class]) {
+            BPTCharacter *character = (BPTCharacter*)node;
+            [character updateVision];
+        }
     }
 }
 

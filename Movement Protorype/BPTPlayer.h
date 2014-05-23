@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BPTCharacter.h"
+#import "BPTTile.h"
+#import "BPTObjectWithVision.h"
 
-@interface BPTPlayer : NSObject {
+@interface BPTPlayer : NSObject <BPTObjectWithVision>{
     NSMutableArray *marrCharacters;
 
 }
 
 
-@property int teamId;
+@property NSNumber *nbrTeam;
 
 - (void) setCharacters: (NSMutableArray *) characters;
 - (NSMutableArray *) getAllCharacters;

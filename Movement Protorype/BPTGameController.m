@@ -178,7 +178,7 @@
     }
     
     
-    NSLog(@"O Player %d perdeu",player.teamId);
+    NSLog(@"O Player %@ perdeu",player.nbrTeam);
 }
 
 

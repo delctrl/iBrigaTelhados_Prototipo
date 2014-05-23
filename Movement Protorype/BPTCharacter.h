@@ -8,8 +8,9 @@
 
 #import "BPTImportsDefines.h"
 #import "BPTTile.h"
+#import "BPTObjectWithVision.h"
 
-@interface BPTCharacter : SKSpriteNode
+@interface BPTCharacter : SKSpriteNode <BPTObjectWithVision>
 
 @property NSNumber *nbrTeam;
 @property NSString *strTextureName;
@@ -18,11 +19,9 @@
 @property NSNumber *nbrDefense;
 @property NSNumber *nbrAttack;
 @property NSNumber *nbrInitiative;
-@property NSMutableArray *marrCharMapVision;
 
 - (id) initWithTexture : (SKTexture *) texture;
 - (id) initWithTexture: (NSString*) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team;
 - (void) changePositionWithDifferences: (CGPoint) position;
-- (void) updateCharacterVision;
 
 @end

@@ -10,6 +10,7 @@
 #import "BPTTile.h"
 #import "BPTCharacter.h"
 #import "BPTGameController.h"
+#import "BPTObjectWithVision.h"
 
 @interface BPTGameScene : SKScene {
     /** @note: Variáveris locais relacionadas ao mapa **/

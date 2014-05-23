@@ -10,6 +10,8 @@
 
 @implementation BPTPlayer
 
+@synthesize marrMapVision;
+
 - (NSMutableArray *) getAllCharacters {
     return marrCharacters;
 }
@@ -24,9 +26,46 @@
     self = [super init];
     
     if(self){
-        self.teamId = teamId;
+        self.nbrTeam = [NSNumber numberWithInt:teamId];
+        [self initVision];
+
     }
     
     return self;
+}
+/**@bug */
+- (void) updateVision {
+    [self initVision];
+    for (BPTCharacter *charNode in marrCharacters) {
+        for (int i = 0; i < charNode.marrMapVision.count; i++) {
+            BPTTile *auxPlayerTile = [[self marrMapVision] objectAtIndex:i];
+            BPTTile *auxCharTile = [charNode.marrMapVision objectAtIndex:i];
+            if (auxCharTile.nbrVisionType < auxPlayerTile.nbrVisionType) {
+                auxPlayerTile.nbrVisionType = auxCharTile.nbrVisionType;
+                if(auxCharTile.alpha > auxPlayerTile.alpha)
+                {
+                    auxPlayerTile.alpha = auxCharTile.alpha;
+                }
+                if(auxPlayerTile.cgpPosAtTileMap.x == charNode.cgpPosAtTileMap.x &&
+                   auxPlayerTile.cgpPosAtTileMap.y == charNode.cgpPosAtTileMap.y)
+                {
+                    auxPlayerTile.alpha = 1;
+                }
+            }
+        }
+    }
+}
+
+/**@bug */
+- (void) initVision {
+    self.marrMapVision = [[NSMutableArray alloc] init];
+    for(int i=0; i< MAP_H; i++){
+        for(int j =0; j < MAP_W; j++){
+            BPTTile *visionTile = [[BPTTile alloc] initWithPos: CGPointMake(i, j) AndTexture: nil];
+            visionTile.nbrVisionType = [NSNumber numberWithInt:4];
+            visionTile.alpha = 0.2;
+            [self.marrMapVision addObject:visionTile];
+        }
+    }
 }
 @end
