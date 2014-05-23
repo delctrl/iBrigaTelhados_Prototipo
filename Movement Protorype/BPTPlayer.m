@@ -7,6 +7,7 @@
 //
 
 #import "BPTPlayer.h"
+#import "BPTCharacter.h"
 
 @implementation BPTPlayer
 
@@ -28,5 +29,11 @@
     }
     
     return self;
+}
+-(void) giveUp{
+
+    for(BPTCharacter *character in marrCharacters){
+        character.nbrLife = 0;
+    }
 }
 @end
