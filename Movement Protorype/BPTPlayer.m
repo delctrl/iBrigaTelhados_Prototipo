@@ -7,6 +7,7 @@
 //
 
 #import "BPTPlayer.h"
+#import "BPTCharacter.h"
 
 @implementation BPTPlayer
 
@@ -33,6 +34,7 @@
     
     return self;
 }
+<<<<<<< HEAD
 /**@bug */
 - (void) updateVision {
     [self initVision];
@@ -66,6 +68,12 @@
             visionTile.alpha = 0.2;
             [self.marrMapVision addObject:visionTile];
         }
+=======
+-(void) giveUp{
+
+    for(BPTCharacter *character in marrCharacters){
+        character.nbrLife = 0;
+>>>>>>> FETCH_HEAD
     }
 }
 @end
