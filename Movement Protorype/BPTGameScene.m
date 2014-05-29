@@ -12,18 +12,14 @@
 
 @implementation BPTGameScene
 
-
-/**@a: Model | @b: View | @c: Controller **/
-
-/**@b**/
-- (id) initWithSize: (CGSize) size {
+- (id) initWithSize: (CGSize) size { /** @note Função basica da SKScene. **/
+    /** @ref @note Inicia com o tamanho da tela do device. Inicializa variáveis da scene, inicia BPTGameController, puxa o mapa do gameController, adiciona as tiles e personagens como sprites, reseta a posição Z dos personagens. **/
     
     if (self = [super initWithSize:size]) {
         gameController = [[BPTGameController alloc] init];
         
         boolCharacterIsSelected = FALSE;
         
-        /** @skip @details createTerrain ainda não  publico **/
         marrTileMatrix = [[gameController mapController] getMap];
         [self addTilesToScene];
         
@@ -33,10 +29,12 @@
     
     return self;
 }
-- (void) update: (CFTimeInterval) currentTime {
+
+- (void) update: (CFTimeInterval) currentTime { /** @note Função basica da SKScene, atualiza gráficos. **/
     
 }
-- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
+
+- (void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event { /** @note Gestos da cena. @ref É muito mais interessante passar o touch em sí, do que o vetor de touches que possui apenas um. **/
     
     if (touches.count != 1) {
         return;
@@ -48,8 +46,8 @@
         [self selectCharacterToBeMoved: touches];
     }
 }
-- (void) resetZPosition {
-    
+
+- (void) resetZPosition { /** @note Reorganiza os personagens em questão de profundidade. **/
     NSMutableArray * allCharacters = [[NSMutableArray alloc] init];
     
     for (SKNode *node in self.children) {
@@ -74,8 +72,8 @@
         z--;
     }
 }
-- (void) resetAlphas {
-    
+
+- (void) resetAlphas { /** @ref @note Reseta o alpha das tiles, reseta o alpha primeiro e se for um personagem muda a textura. Lembrando que alphas não devem ser usados.  **/
     for(BPTCharacter *node in self.children){
         if ([node isKindOfClass: [SKSpriteNode class]]) {
             node.alpha = 1;
@@ -84,16 +82,15 @@
             }
         }
     }
-    
 }
-- (void) startShowingVision:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*) nbrTeam{
-    
+
+- (void) startShowingVision:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*) nbrTeam { /** @note Mostra um BPTObjectWithVision na tela, recebendo o time para o alpha update. @ref Todas as classes que assinam BPTObjectWithVision possuem um nbrTeam, para qual propósito este método recebe outro? **/
     [self resetAlphas];
     [objWithVision updateVision];
     [self alphaUpdate: objWithVision team:nbrTeam];
 }
 
-- (void) alphaUpdate:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*)nbrTeam{
+- (void) alphaUpdate:(id<BPTObjectWithVision>) objWithVision team:(NSNumber*)nbrTeam{ /** @ref @note Atualiza visão dos personagens e player. Lembrando que alphas não devem ser usados. **/
     for(int i = 0; i < marrTileMatrix.count; i++){
         BPTTile *tile1 = [marrTileMatrix objectAtIndex:i];
         BPTTile *tile2 = [objWithVision.marrMapVision objectAtIndex:i];
@@ -120,7 +117,7 @@
 
 }
 
-- (void) startShowingMovableTiles {
+- (void) startShowingMovableTiles { /** @note Mostra as tiles que são passiveis de serem ocupadas. @ref Teria como reduzir essa função? **/
     
     marrTilesEnabled = [[NSMutableArray alloc] init];
     
@@ -163,7 +160,8 @@
 
     }
 }
-- (void) createCharacters {
+
+- (void) createCharacters { /** @note Cria personagens na tela, de acordo com sua posição na matriz de tiles. @ref Muda qual personagem ocupa qual tile, que deveria ser controlado pelo gameController. **/
     
     NSMutableArray *gameCharacters = [[NSMutableArray alloc] init];
     
@@ -175,8 +173,8 @@
         [self addChild: charNode];
     }
 }
-- (void) selectCharacterToBeMoved: (NSSet *) touches {
-    
+
+- (void) selectCharacterToBeMoved: (NSSet *) touches { /** @note Função chamada por evento de toque, seleciona personagem  **/
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
         
@@ -192,36 +190,45 @@
         }
     }
 }
-- (void) changeCharacterPosition: (NSSet *) touches {
+
+- (void) changeCharacterPosition: (NSSet *) touches { /** @note Comentado em partes para melhor entendimento. **/
     
+    /** @details Recebe o toque e chama a detecção de colisão do gameController. @ref Quem controla a posição na tela neste caso deveria ser a cena, mas é o controlador. **/
     for (UITouch* t in touches) {
         CGPoint touchePoint = [t locationInNode:self];
-        
         charSelectedCharacter = [gameController checkCharacterToBeMoved:charSelectedCharacter AndPoint:touchePoint onMovimentArray:marrTilesEnabled andCharacterArray:self.children];
     }
+    /** @details Seta que nenhum personagem está selecionado. **/
     boolCharacterIsSelected = FALSE;
     
+    /** @details Reseta os alphas do jogo. **/
     [self resetAlphas];
     
+    /** @details Reseta a textura das tiles passíveis de movimento. @ref Poderia ser um método. **/
     for (SKSpriteNode * node in marrTilesEnabled) {
         node.texture = [SKTexture textureWithImageNamed:@"grass.png"];
     }
     
+    /** @details Limpa o vetor auxiliar de range de movimento. **/
     [marrTilesEnabled removeAllObjects];
+    
+    /** @details Reseta a posição Z dos personagens. **/
     [self resetZPosition];
     
+    /** @details Atualiza a visão de todos os personagens. **/
     [self updateAllCharactersVision];
-    /**@details trocar para o jogador atual*/
+    
+    /** @ref @details Mostra a posição do jogador um. Não deveria estar aqui. */
     [self startShowingVision:[gameController playerOne] team:[gameController playerOne].nbrTeam];
 }
-- (void) addTilesToScene {
+
+- (void) addTilesToScene { /** @note Adiciona as tiles na cena. **/
     for (SKNode *n in marrTileMatrix) {
         [self addChild:n];
     }
 }
 
--(void)updateAllCharactersVision
-{
+- (void) updateAllCharactersVision { /** @note Atualiza a visão de todos os personagens restantes. **/
     for (SKNode *node in self.children) {
         if ([node class] == [BPTCharacter class]) {
             BPTCharacter *character = (BPTCharacter*)node;

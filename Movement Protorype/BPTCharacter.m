@@ -14,27 +14,23 @@
 
 @synthesize marrMapVision;
 
-/**@a: Model | @b: View | @c: Controller **/
-
-/**@a**/
-- (id) initWithTexture: (SKTexture *) texture {
+- (id) initWithTexture: (SKTexture *) texture { /** @ref @note Inicia personagem com textura e vida padrão. Lembrando que o correto é iniciar o personagem completamente.**/
     
     self = [super init];
     if (self) {
         self.texture = texture;
-        self.nbrLife = [[NSNumber alloc] initWithInt:4];
+        self.nbrLife = [[NSNumber alloc] initWithInt:4]; /** @ref @note Não deveria existir vida padrão **/
         
         [self initVision];
     }
     return self;
 }
 
-/**@a**/
-- (void) initVision {
+- (void) initVision { /** @note Inicia a visão do personagem **/
     
     self.marrMapVision = [[NSMutableArray alloc] init];
-    for(int i=0; i< MAP_W; i++){
-        for(int j =0; j < MAP_H; j++){
+    for (int i=0; i< MAP_W; i++) {
+        for (int j =0; j < MAP_H; j++) {
             BPTTile *visionTile = [[BPTTile alloc] initWithPos: CGPointMake(i, j) AndTexture: nil];
     
             [self.marrMapVision addObject:visionTile];
@@ -44,14 +40,12 @@
     [self updateVision];
 }
 
-/**@a**/
-- (int) returnTileAtX: (int) x AndAtY: (int) y {
+- (int) returnTileAtX: (int) x AndAtY: (int) y { /** @note wtf, isso é do personagem? **/
     
     return x*MAP_W + y;
 }
 
-/**@a**/
-- (void) updateVision {
+- (void) updateVision { /** @note Atualiza a visão do personagem **/
     
     [self resetAlphas];
     
@@ -67,15 +61,13 @@
     }
 }
 
-/**@a**/
-- (void) resetAlphas{
+- (void) resetAlphas { /** @ref @note Reseta o alpha das tiles. Uso de alphas é incorreto. **/
     for(BPTTile *selectedTile in self.marrMapVision){
         selectedTile.alpha = 1;
     }
 }
 
-/**@a**/
-- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team {
+- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team { /** @ref @note Inicia personagem com textura, nome do arquivo da textura, realiza o scale do personagem (que não deveria acontecer), recebe o time e a posição do personagem na tile map. Lembrando que o correto é iniciar o personagem completamente. **/
 
     self = [self initWithTexture: [SKTexture textureWithImageNamed: textureName]];
     self.strTextureName = textureName;
@@ -86,7 +78,7 @@
     return self;
 }
 
-- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team hp: (NSNumber *) hp initiative: (NSNumber *) initiative {
+- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team hp: (NSNumber *) hp initiative: (NSNumber *) initiative { /** @ref @note Fundir os initWithTextures. Inicializa com todos os outros argumentos, mais a iniciativa e o HP. **/
     
     self = [self initWithTexture: textureName arrayPosition: arrayPosition team: team];
     self.nbrLife = hp;
@@ -95,20 +87,18 @@
     return self;
 }
 
-/**@a**/
-- (void) changePositionWithDifferences: (CGPoint) position {
+- (void) changePositionWithDifferences: (CGPoint) position { /** @ref @note Muda a posição do personagem na tela, o controlador de jogo deveria fazer isso **/
     self.position = CGPointMake(position.x+CHAR_DIFF_X, position.y+(HEIGHT_TILE*CHAR_SIZE_RATE)/2-CHAR_DIFF_Y);
 }
 
+/** @skip @note Método desnecessário, uma vez que o personagem é tirado do array do player.
 -(void) resetVision {
     
     for(BPTTile *visionTile in self.marrMapVision){
         visionTile.nbrVisionType = [NSNumber numberWithInt:4];
         visionTile.alpha = 0.2;
     }
-    
-    NSLog(@"VISAO RESET");
-}
+} **/
 
 
 @end

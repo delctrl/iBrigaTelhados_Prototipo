@@ -14,16 +14,16 @@
 
 @interface BPTGameScene : SKScene {
     /** @note: Variáveris locais relacionadas ao mapa **/
-    BPTGameController *gameController;
+    BPTGameController *gameController; /** @details Controlador do jogo. **/
     
     /** @note: Variáveris locais relacionadas ao mapa **/
-    NSMutableArray *marrTileMatrix;
-    NSMutableArray *marrTilesEnabled;
+    NSMutableArray *marrTileMatrix; /** @details Matriz de tiles. **/
+    NSMutableArray *marrTilesEnabled; /** @details Matriz auxiliar de tiles andáveis. **/
  
     /** @note: Variáveris locais relacionadas a personagens **/
 //    NSMutableArray *marrGameCharacters;
-    BPTCharacter *charSelectedCharacter;
-    BOOL boolCharacterIsSelected;
+    BPTCharacter *charSelectedCharacter; /** @details Personagem selecionado **/
+    BOOL boolCharacterIsSelected; /** @details Variável para checar se existe um personagem selecionado. **/
 }
 
 @end

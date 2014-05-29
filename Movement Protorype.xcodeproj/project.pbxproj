@@ -46,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		5BD106FD1922900F00B633A4 /* CharacterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTests.m; sourceTree = "<group>"; };
-		5BD106FF1922904600B633A4 /* BPTImportsDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTImportsDefines.h; sourceTree = "<group>"; };
 		5BD107021922AD1900B633A4 /* TileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileTests.m; sourceTree = "<group>"; };
 		5BD107041922B02700B633A4 /* JogoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoTests.m; sourceTree = "<group>"; };
 		5BE6609D192A687F00A488FF /* MapControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapControllerTests.m; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		BB107687191C17030053EF91 /* BPTCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTCharacter.m; sourceTree = "<group>"; };
 		BB1C7B45191D6A9E006F1D19 /* BPTTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTTile.h; sourceTree = "<group>"; };
 		BB1C7B46191D6A9E006F1D19 /* BPTTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTTile.m; sourceTree = "<group>"; };
+		BB2330E71937B72F005CD07B /* BPTImportsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTImportsDefines.h; sourceTree = "<group>"; };
 		BBB06AA9192FC809006C3135 /* BPTObjectWithVision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPTObjectWithVision.h; sourceTree = "<group>"; };
 		F2275A551923E1BC004AE794 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F24E88A31925392F003CDC67 /* BPTPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTPlayer.h; sourceTree = "<group>"; };
@@ -191,6 +191,8 @@
 		F20AC804192407410090624E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F24E88A31925392F003CDC67 /* BPTPlayer.h */,
+				F24E88A41925392F003CDC67 /* BPTPlayer.m */,
 				BB107686191C17030053EF91 /* BPTCharacter.h */,
 				BB107687191C17030053EF91 /* BPTCharacter.m */,
 				BB1C7B45191D6A9E006F1D19 /* BPTTile.h */,
@@ -213,8 +215,6 @@
 			children = (
 				F2F81C7B1925438E00CF5BC0 /* BPTGameController.h */,
 				F2F81C7C1925438E00CF5BC0 /* BPTGameController.m */,
-				F24E88A31925392F003CDC67 /* BPTPlayer.h */,
-				F24E88A41925392F003CDC67 /* BPTPlayer.m */,
 				F2F81C7E1925463100CF5BC0 /* BPTMapController.h */,
 				F2F81C7F1925463100CF5BC0 /* BPTMapController.m */,
 				BBB06AA9192FC809006C3135 /* BPTObjectWithVision.h */,
@@ -236,8 +236,8 @@
 		F20AC808192407A70090624E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5BD106FF1922904600B633A4 /* BPTImportsDefines.h */,
 				F2275A551923E1BC004AE794 /* Images.xcassets */,
+				BB2330E71937B72F005CD07B /* BPTImportsDefines.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

@@ -12,12 +12,10 @@
 #import "BPTObjectWithVision.h"
 
 @interface BPTPlayer : NSObject <BPTObjectWithVision> {
-    NSMutableArray *marrCharacters;
-
+    NSMutableArray *marrCharacters; /** @note Vetor com todos os personagens do jogador. **/
 }
 
-
-@property NSNumber *nbrTeam;
+@property NSNumber *nbrTeam; /** @note Numero do time. **/
 
 - (void) removeCharacter: (BPTCharacter *) character;
 - (void) setCharacters: (NSMutableArray *) characters;

@@ -13,16 +13,16 @@
 
 @synthesize marrMapVision;
 
-- (NSMutableArray *) getAllCharacters {
+- (NSMutableArray *) getAllCharacters { /** @note Retorna os personagens do time. **/
     return marrCharacters;
 }
 
-- (void) setCharacters: (NSMutableArray *) characters {
+- (void) setCharacters: (NSMutableArray *) characters { /** @note Inicia com o número do time. O player deveria ser criado no controlador, já com os personagens, pois eventualmente existirá um controlador de partidas. **/
     marrCharacters = characters;
     
 }
 
-- (id)initWithTeamId: (int) teamId{
+- (id)initWithTeamId: (int) teamId{ /** @note Inicia com o número do time. **/
 
     self = [super init];
     
@@ -35,8 +35,7 @@
     return self;
 }
 
-/**@bug */
-- (void) updateVision {
+- (void) updateVision { /** @ref @note Atualiza a visão do jogador. Levando em conta que o esquema de alphas é errado. **/
     [self initVision];
     for (BPTCharacter *charNode in marrCharacters) {
         for (int i = 0; i < charNode.marrMapVision.count; i++) {
@@ -53,8 +52,7 @@
     }
 }
 
-/**@bug */
-- (void) initVision {
+- (void) initVision { /** @ref @note Inicia a visão do jogador. Levando em conta que o esquema de alphas é errado. **/
     self.marrMapVision = [[NSMutableArray alloc] init];
     for(int i=0; i< MAP_H; i++){
         for(int j =0; j < MAP_W; j++){
@@ -67,14 +65,13 @@
     
 }
 
--(void) giveUp{
-
-    for(BPTCharacter *character in marrCharacters){
+-(void) giveUp { /** @ref @note Faz com que o jogador perca. Deveria ser do controlador, sendo que o certo não é setar a vida para 0 e sim tirar todos os personagens do array. **/
+    for (BPTCharacter *character in marrCharacters) {
         character.nbrLife = 0;
     }
 }
 
-- (void) removeCharacter: (BPTCharacter *) character{
+- (void) removeCharacter: (BPTCharacter *) character { /** @note Remove um personagem do vetor de personagens vivos **/
     [marrCharacters removeObject: character];
 }
 
