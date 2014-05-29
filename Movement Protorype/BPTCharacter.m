@@ -86,9 +86,29 @@
     return self;
 }
 
+- (id) initWithTexture: (NSString *) textureName arrayPosition: (CGPoint) arrayPosition team: (NSNumber *) team hp: (NSNumber *) hp initiative: (NSNumber *) initiative {
+    
+    self = [self initWithTexture: textureName arrayPosition: arrayPosition team: team];
+    self.nbrLife = hp;
+    self.nbrInitiative = initiative;
+    
+    return self;
+}
+
 /**@a**/
 - (void) changePositionWithDifferences: (CGPoint) position {
     self.position = CGPointMake(position.x+CHAR_DIFF_X, position.y+(HEIGHT_TILE*CHAR_SIZE_RATE)/2-CHAR_DIFF_Y);
 }
+
+-(void) resetVision {
+    
+    for(BPTTile *visionTile in self.marrMapVision){
+        visionTile.nbrVisionType = [NSNumber numberWithInt:4];
+        visionTile.alpha = 0.2;
+    }
+    
+    NSLog(@"VISAO RESET");
+}
+
 
 @end

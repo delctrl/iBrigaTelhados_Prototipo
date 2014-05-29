@@ -34,7 +34,7 @@
     
     return self;
 }
-<<<<<<< HEAD
+
 /**@bug */
 - (void) updateVision {
     [self initVision];
@@ -44,15 +44,10 @@
             BPTTile *auxCharTile = [charNode.marrMapVision objectAtIndex:i];
             if (auxCharTile.nbrVisionType < auxPlayerTile.nbrVisionType) {
                 auxPlayerTile.nbrVisionType = auxCharTile.nbrVisionType;
-                if(auxCharTile.alpha > auxPlayerTile.alpha)
-                {
-                    auxPlayerTile.alpha = auxCharTile.alpha;
-                }
-                if(auxPlayerTile.cgpPosAtTileMap.x == charNode.cgpPosAtTileMap.x &&
-                   auxPlayerTile.cgpPosAtTileMap.y == charNode.cgpPosAtTileMap.y)
-                {
-                    auxPlayerTile.alpha = 1;
-                }
+            }
+            if(auxCharTile.alpha > auxPlayerTile.alpha)
+            {
+                auxPlayerTile.alpha = auxCharTile.alpha;
             }
         }
     }
@@ -68,12 +63,19 @@
             visionTile.alpha = 0.2;
             [self.marrMapVision addObject:visionTile];
         }
-=======
+    }
+    
+}
+
 -(void) giveUp{
 
     for(BPTCharacter *character in marrCharacters){
         character.nbrLife = 0;
->>>>>>> FETCH_HEAD
     }
 }
+
+- (void) removeCharacter: (BPTCharacter *) character{
+    [marrCharacters removeObject: character];
+}
+
 @end

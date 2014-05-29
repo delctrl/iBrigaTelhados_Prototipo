@@ -92,9 +92,12 @@
     
     return Nil;
 }
-
-- (void) checkPushMovementForTile: (BPTTile *) tile AndFirstCharacter: (BPTCharacter *) character01 AndSecondCharacter: (BPTCharacter*) character02{
+/**********************************/
+/*** MUDAR URGENTEMENTE BEGINS! ***/
+/**********************************/
+- (void) checkPushMovementForTile: (BPTTile *) tile AndFirstCharacter: (BPTCharacter *) characterPushed AndSecondCharacter: (BPTCharacter*) characterPushing {
     
+    BOOL characterHasBeenMoved = NO;
     BPTTile* tileAux = [[BPTTile alloc] init];
     CGPoint aux;
     int bounds = 0;
@@ -108,62 +111,89 @@
             bounds = 4;
         }
         
-        if (character01.cgpPosAtTileMap.x - character02.cgpPosAtTileMap.x == i) {
-            if (character01.cgpPosAtTileMap.x == bounds) {
-                [character01 removeFromParent];
-                character01.nbrLife = 0;
+        if (characterPushed.cgpPosAtTileMap.x - characterPushing.cgpPosAtTileMap.x == i) {
+            if (characterPushed.cgpPosAtTileMap.x == bounds) {
+                [self.mapController returnTileAtPosition:characterPushed.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
+                [characterPushed removeFromParent];
+                [self.playerOne removeCharacter:characterPushed];
                 return;
             }
-            aux = CGPointMake(character01.cgpPosAtTileMap.x+i, character01.cgpPosAtTileMap.y);
+            aux = CGPointMake(characterPushed.cgpPosAtTileMap.x+i, characterPushed.cgpPosAtTileMap.y);
+            if ([self checkPushedMovementForTile:[self.mapController returnTileAtPosition:aux] AndCharacterPushed:characterPushed]) {
+                aux = CGPointMake(characterPushed.cgpPosAtTileMap.x+i, characterPushed.cgpPosAtTileMap.y);
+                characterHasBeenMoved = YES;
+            }
         }
-        else if (character01.cgpPosAtTileMap.y - character02.cgpPosAtTileMap.y == i) {
-            if (character01.cgpPosAtTileMap.y == bounds) {
-                [character01 removeFromParent];
-                character01.nbrLife = 0;
+        else if (characterPushed.cgpPosAtTileMap.y - characterPushing.cgpPosAtTileMap.y == i) {
+            if (characterPushed.cgpPosAtTileMap.y == bounds) {
+                [self.mapController returnTileAtPosition:characterPushed.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
+                [characterPushed removeFromParent];
+                [self.playerOne removeCharacter:characterPushed];
                 return;
             }
-            aux = CGPointMake(character01.cgpPosAtTileMap.x, character01.cgpPosAtTileMap.y+i);
+            aux = CGPointMake(characterPushed.cgpPosAtTileMap.x, characterPushed.cgpPosAtTileMap.y+i);
+            if ([self checkPushedMovementForTile:[self.mapController returnTileAtPosition:aux] AndCharacterPushed:characterPushed]) {
+                aux = CGPointMake(characterPushed.cgpPosAtTileMap.x, characterPushed.cgpPosAtTileMap.y+i);
+                characterHasBeenMoved = YES;
+            }
         }
     }
     
-    tileAux = [[self mapController] returnTileAtPosition: aux];
-    [character01 changePositionWithDifferences:tileAux.position];
+    if (characterHasBeenMoved) {
+        tileAux = [[self mapController] returnTileAtPosition: aux];
+        [characterPushed changePositionWithDifferences:tileAux.position];
+        [self.mapController returnTileAtPosition:characterPushed.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
     
-    character01.cgpPosAtTileMap = tileAux.cgpPosAtTileMap;
-    tileAux.nbrIsOccupiedByTeam = character01.nbrTeam;
+        characterPushed.cgpPosAtTileMap = tileAux.cgpPosAtTileMap;
+        tileAux.nbrIsOccupiedByTeam = characterPushed.nbrTeam;
+        characterPushed.nbrLife = [NSNumber numberWithInt: [characterPushed.nbrLife integerValue]-1];
+    } else {
+        characterPushed.nbrLife = [NSNumber numberWithInt: [characterPushed.nbrLife integerValue]-2];
+    }
     
-    
+    if ([characterPushed.nbrLife intValue] <= 0) {
+        [self.mapController returnTileAtPosition:characterPushed.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
+        [characterPushed removeFromParent];
+        [self.playerOne removeCharacter:characterPushed];
+    }
+}
+
+- (BOOL) checkPushedMovementForTile: (BPTTile *) tile AndCharacterPushed: (BPTCharacter *) characterPushed {
+    if (tile.nbrIsOccupiedByTeam != 0) {
+        return NO;
+    }
+    return YES;
 }
 
 - (BPTCharacter*) checkCharacterToBeMoved: (BPTCharacter*) character AndPoint: (CGPoint)touchPoint onMovimentArray:(NSMutableArray*)marrTilesEnabled andCharacterArray: (NSMutableArray*) sceneChildren {
     for (BPTTile *node in marrTilesEnabled) {
         if (CGRectContainsPoint (node.frame, touchPoint)) {
-            [[self mapController] returnTileAtPosition:character.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
             
             if (node.nbrIsOccupiedByTeam > 0) {
                 for (BPTCharacter * charNode in sceneChildren) {
-                    if ([charNode isKindOfClass: [BPTCharacter class]] && CGRectContainsPoint (charNode.frame, node.position)) {
+                    if ([charNode isKindOfClass: [BPTCharacter class]] && node.cgpPosAtTileMap.x == charNode.cgpPosAtTileMap.x && node.cgpPosAtTileMap.y == charNode.cgpPosAtTileMap.y) {
                         [self checkPushMovementForTile: node AndFirstCharacter: charNode AndSecondCharacter:character];
-                        
-                        [self checkPlayerAliveCharacters:_playerOne];
-                        [self checkPlayerAliveCharacters:_playerTwo];
-
                     }
                 }
             }
-            
-            [character changePositionWithDifferences:node.position];
-            character.cgpPosAtTileMap = node.cgpPosAtTileMap;
-            node.nbrIsOccupiedByTeam = character.nbrTeam;
-            
-            return Nil;
+            if (node.nbrIsOccupiedByTeam == 0) {
+                [[self mapController] returnTileAtPosition:character.cgpPosAtTileMap].nbrIsOccupiedByTeam = 0;
+                [character changePositionWithDifferences:node.position];
+                character.cgpPosAtTileMap = node.cgpPosAtTileMap;
+                node.nbrIsOccupiedByTeam = character.nbrTeam;
+                return Nil;
+            }
         }
     }
     
+    [self checkPlayerAliveCharacters: self.playerOne];
+    [self checkPlayerAliveCharacters: self.playerTwo];
+    
     return character;
 }
-
-
+/********************************/
+/*** MUDAR URGENTEMENTE ENDS! ***/
+/********************************/
 -(void) checkPlayerAliveCharacters: (BPTPlayer *) player{
 
     int sum = 0;

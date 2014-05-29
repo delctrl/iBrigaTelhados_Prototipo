@@ -25,4 +25,5 @@
 - (BPTCharacter*) checkIfCharacterWasSelectedOnPoint: (CGPoint) touchPoint andChildrenArray: (NSArray*) sceneChildren;
 - (BOOL) checkIfThereIsACharacterAtPosition: (CGPoint) position SelectedCharacter:(BPTCharacter*) character;
 - (BPTCharacter*) checkCharacterToBeMoved: (BPTCharacter*) character AndPoint: (CGPoint)touchPoint onMovimentArray:(NSMutableArray*)marrTilesEnabled andCharacterArray: (NSArray*) sceneChildren;
+- (BOOL) checkPushedMovementForTile: (BPTTile *) tile AndCharacterPushed: (BPTCharacter *) characterPushed;
 @end

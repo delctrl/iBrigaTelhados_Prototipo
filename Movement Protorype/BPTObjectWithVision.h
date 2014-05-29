@@ -15,4 +15,7 @@
 -(void)initVision;
 -(void)updateVision;
 
+@optional
+-(void)resetVision;
+
 @end

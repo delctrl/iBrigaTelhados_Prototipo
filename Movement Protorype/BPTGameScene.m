@@ -76,12 +76,11 @@
 }
 - (void) resetAlphas {
     
-    for(SKSpriteNode *node in self.children){
+    for(BPTCharacter *node in self.children){
         if ([node isKindOfClass: [SKSpriteNode class]]) {
             node.alpha = 1;
             if ([node isKindOfClass: [BPTCharacter class]]) {
-                BPTCharacter *aux = (BPTCharacter *) node;
-                aux.texture = [SKTexture textureWithImageNamed: aux.strTextureName];
+                node.texture = [SKTexture textureWithImageNamed: node.strTextureName];
             }
         }
     }
